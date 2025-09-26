@@ -43,5 +43,3 @@ Whether you’re a **software engineer**, **architect**, or **startup founder**,
 If you’ve ever wondered *how real companies actually scale* — not in theory, but in practice — this is my candid, first-hand story.
 
 And maybe, just maybe, you’ll find a bit of yourself in *The Accidental CTO*.
-
-Do you want me to extend this into a **full book-style introduction (2–3 pages, story-driven)**, or keep it tight as a **back-cover blurb** style summary?
