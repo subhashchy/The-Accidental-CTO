@@ -3140,11 +3140,11 @@ But as our platform grew, the world started to take notice. The whispers about D
 
 ### **Part 1: The Invitation and the Impostor**
 
-The email landed in my inbox on a Tuesday afternoon. The subject line was simple: "Invitation: Scaler Podcast with Anubhav Gupta."
+The email landed in my inbox on a Tuesday afternoon. The subject line was simple: "Invitation: Scaler Podcast with Arnav Gupta."
 
 My heart started pounding.
 
-For anyone in the Indian startup ecosystem, Anubhav Gupta and the Scaler Podcast were legendary. Anubhav is a hardcore, first-principles engineer, a highly respected leader who doesn't shy away from calling a fad a fad. His podcast was a three-hour, no-holds-barred deep dive into the nuts and bolts of technology. It was a true nerd-out session.
+For anyone in the Indian startup ecosystem, Arnav Gupta and the Scaler Podcast were legendary. Arnav is a hardcore, first-principles engineer, a highly respected leader who doesn't shy away from calling a fad a fad. His podcast was a three-hour, no-holds-barred deep dive into the nuts and bolts of technology. It was a true nerd-out session.
 
 And the guest list... the guest list was the stuff of legends. The previous guests were:
 
@@ -3160,7 +3160,7 @@ I'll be honest with you. My first reaction wasn't excitement. It was pure, cold,
 
 The impostor syndrome that had been a quiet companion throughout my career was now screaming in my ear. Who was I to sit in that chair? I was the commerce kid from Bihar. The guy who couldn't afford to study for his CA exams. The self-taught coder who learned PHP from a pirated PDF and figured out system design by watching things break at 3 AM.
 
-I had zero theoretical knowledge of the concepts they teach you in college. If Anubhav asked me to explain the CAP Theorem from a textbook definition or to calculate the Big O notation of an algorithm on a whiteboard, I would freeze. I would be exposed as a fraud.
+I had zero theoretical knowledge of the concepts they teach you in college. If Arnav asked me to explain the CAP Theorem from a textbook definition or to calculate the Big O notation of an algorithm on a whiteboard, I would freeze. I would be exposed as a fraud.
 
 This wasn't just about me. The stakes were immense. I would be representing Dukaan. I would be representing my entire engineering team, a group of incredibly talented people who had put their trust in me. Any mistake I made, any dumb thing I said, would reflect poorly on all of them. It would damage our reputation in the tech community and undo all the hard work we had done to build our brand.
 
@@ -3176,7 +3176,7 @@ With my heart in my throat, I replied to the email: "I'd be honored to."
 
 The days leading up to the podcast were a blur of anxiety. I didn't try to cram computer science textbooks; I knew that would be a fool's errand. Instead, I decided to lean into my only real strength: the story. I wouldn't try to be the smartest academic in the room; I would be the most authentic builder. I gathered our architectural diagrams, the Grafana dashboards from the Shark Tank spike, and the cost-saving charts from our bare-metal migration. I wouldn't be quoting theory; I would be presenting evidence from the trenches.
 
-I walked into the studio, my heart pounding. The setup was professional, the lights were bright, and Anubhav Gupta greeted me with a firm handshake. He was exactly as I had imagined: sharp, intense, and deeply technical. The moment we started talking, however, my fear began to melt away.
+I walked into the studio, my heart pounding. The setup was professional, the lights were bright, and Arnav Gupta greeted me with a firm handshake. He was exactly as I had imagined: sharp, intense, and deeply technical. The moment we started talking, however, my fear began to melt away.
 
 He wasn't there to quiz me on algorithms. He was a builder, and he wanted to talk to another builder. The questions were not abstract; they were real. We started right at the beginning, with the story of the **512MB DigitalOcean droplet** that once powered our entire company and how it crashing at 3 AM was my first real lesson in scaling.
 
@@ -3184,7 +3184,7 @@ The conversation that followed wasn't an interview; it was a three-hour, deep-di
 
 My supposed weakness-my lack of formal training-became my superpower. I couldn't fall back on complex jargon, so I had to explain things from first principles, using the same simple analogies I had used to understand them myself.
 
-- When Anubhav asked about handling cold starts on our serverless edge functions, I didn't give a technical lecture on lambda calculus. I used the **Maggi noodles example**. "The first customer to hit a new function has to wait two minutes for the water to boil," I explained. "But every customer right after that gets their Maggi instantly." The concept just clicked. It was a simple, relatable way to explain a complex serverless problem.
+- When Arnav asked about handling cold starts on our serverless edge functions, I didn't give a technical lecture on lambda calculus. I used the **Maggi noodles example**. "The first customer to hit a new function has to wait two minutes for the water to boil," I explained. "But every customer right after that gets their Maggi instantly." The concept just clicked. It was a simple, relatable way to explain a complex serverless problem.
 - We deep-dived into our migration to **bare metal with providers like E2E Networks**, and the insane, almost unbelievable cost savings we achieved.
 - We talked about the magic of how we issue **SSL certificates on the fly** for our sellers' custom domains on the very first request, a piece of edge engineering our team is incredibly proud of.
 - The conversation even shifted to the philosophy of building teams and the great debate on **DSA (Data Structures & Algorithms)** in interviews. I shared my honest, street-smart perspective: I can Google a sorting algorithm, but I can't Google the grit to fix a production database crash at 3 AM. We valued building and learning by doing, a philosophy that resonated deeply.
