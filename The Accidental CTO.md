@@ -1066,17 +1066,17 @@ Once you accept CAP, the next question becomes: if we can't have everything, wha
 
 Here are the big three you'll encounter:
 
-- **Strong Consistency  
-    **This is the world people intuitively expect. If a seller updates a product's price to ₹800, then _every single read after that_ - no matter which server it hits - must return ₹800.  
+- **Strong Consistency**
+    This is the world people intuitively expect. If a seller updates a product's price to ₹800, then _every single read after that_ - no matter which server it hits - must return ₹800.  
     In the nightclub analogy, the moment the DJ in the VIP room changes the track, the dance floor instantly hears the new song, no exceptions.  
     Strong consistency feels clean, but it often comes at the cost of availability. If the hallway between the VIP and dance floor is blocked for even a moment, the club would rather stall than risk anyone hearing the "wrong" song.  
 
-- **Eventual Consistency  
-    **This is where replicas really live. Updates in the VIP section stream to the dance floor as fast as possible, but not instantly. If you're unlucky, you might hear the old song for a few more beats before the change makes it through.  
+- **Eventual Consistency** 
+    This is where replicas really live. Updates in the VIP section stream to the dance floor as fast as possible, but not instantly. If you're unlucky, you might hear the old song for a few more beats before the change makes it through.  
     From a user's perspective, this can be confusing: they've just saved new data, but the storefront still shows the old value. Given enough time, everything catches up and all rooms are in sync - but "enough time" might be one second or five, and you can't predict exactly when.  
 
-- **Causal Consistency  
-    **This is a middle ground that tries to preserve the order of cause and effect. If Priya lowers the price of her necklace and then views her own store, causal consistency guarantees that _she_ will see her update, even if the rest of the world hasn't yet.  
+- **Causal Consistency** 
+    This is a middle ground that tries to preserve the order of cause and effect. If Priya lowers the price of her necklace and then views her own store, causal consistency guarantees that _she_ will see her update, even if the rest of the world hasn't yet.  
     In the nightclub: if the DJ changes the track, anyone who was in the VIP room to see it happen will always hear the new track, even if people on the dance floor are still catching up.  
     It doesn't guarantee perfect global alignment, but it protects the logic of "I changed something, therefore I should see the change."  
 
