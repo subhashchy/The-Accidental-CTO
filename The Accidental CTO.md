@@ -28,11 +28,11 @@
 
 - [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker) — 152  
 
-- [Chapter 10: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search) — 167  
+- [Chapter 11: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search) — 167  
 
-- [Chapter 11: The Delivery Boy: CDNs for Static Assets](#chapter-12-the-delivery-boy-cdns-for-static-assets) — 179  
+- [Chapter 12: The Delivery Boy: CDNs for Static Assets](#chapter-12-the-delivery-boy-cdns-for-static-assets) — 179  
 
-- [Chapter 12: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes) — 189  
+- [Chapter 13: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes) — 189  
 
 - [Chapter 14: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire) — 211  
 
