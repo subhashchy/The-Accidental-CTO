@@ -28,23 +28,23 @@
 
 [Chapter 10: The Shipping Container Revolution: An Introduction to Docker 152](#_k8hkd6a3d98)
 
-[Chapter 10: The Smart Clerk: Building World-Class Search 167](#_z9irczs38c8c)
+[Chapter 11: The Smart Clerk: Building World-Class Search 167](#_z9irczs38c8c)
 
-[Chapter 11: The Delivery Boy: CDNs for Static Assets 179](#_o41dd4ox352v)
+[Chapter 12: The Delivery Boy: CDNs for Static Assets 179](#_o41dd4ox352v)
 
-[Chapter 12: The Conductor: Orchestrating Everything with Kubernetes 189](#_kx2om11ikts4)
+[Chapter 13: The Conductor: Orchestrating Everything with Kubernetes 189](#_kx2om11ikts4)
 
-[Chapter 13: The Shark Tank Effect: A Trial by Fire 211](#_p891riy2cibj)
+[Chapter 14: The Shark Tank Effect: A Trial by Fire 211](#_p891riy2cibj)
 
 [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network 230](#_r0yf2ulkgs4n)
 
-[Chapter 19: The Spotlight: From Accidental CTO to Tech Leader 252](#_gn25mxa5i1kk)
+[Chapter 16: The Spotlight: From Accidental CTO to Tech Leader 252](#_gn25mxa5i1kk)
 
-[Chapter 16: Escaping the Golden Cage: From AWS to Bare Metal 262](#_ivxe0wn6yoxe)
+[Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal 262](#_ivxe0wn6yoxe)
 
-[Chapter 20: The Grand Finale: A Live Failover 285](#_30n2grez6urp)
+[Chapter 18: The Grand Finale: A Live Failover 285](#_30n2grez6urp)
 
-[Chapter 21: The Accidental CTO 299](#_5xf0atdujnfq)
+[Chapter 19: The Accidental CTO 299](#_5xf0atdujnfq)
 
 # The 3 AM Phone Call
 
@@ -2172,7 +2172,7 @@ We needed a conductor. We needed an automated system to manage the entire lifecy
 - **Containers allow for high-density server utilization.** By running many isolated containers on a single host, you can drastically reduce your infrastructure costs.
 - **Managing a few containers is easy. Managing hundreds is a nightmare.** Once you adopt containers, you will inevitably need a container orchestrator to manage them at scale.
 
-## Chapter 10: The Smart Clerk: Building World-Class Search
+## Chapter 11: The Smart Clerk: Building World-Class Search
 
 Our platform was becoming more robust by the day. We had solved stability, conquered scale, and tamed complexity. Our systems were a testament to modern engineering. But a powerful engine is useless if the steering wheel is broken. And for our users, the search bar-one of the most critical tools for e-commerce-was fundamentally broken.
 
@@ -2280,7 +2280,7 @@ This system was beautiful. The monolith application, which handled the seller's 
 
 The result was a transformative upgrade to the Dukaan platform. The new search was typo-tolerant, context-aware, and returned highly relevant results in milliseconds. Our sellers were overjoyed; their products were now easily discoverable, and we saw a direct and significant increase in sales originating from the search bar. We had turned a critical weakness into a powerful, best-in-class feature.
 
-### **Chapter 10: Key Takeaways**
+### **Chapter 11: Key Takeaways**
 
 - A simple database query (like SQL LIKE) is not a substitute for a real search engine. For a good e-commerce experience, you need a specialized tool.
 - **Elasticsearch** is a powerful solution that provides the critical features-relevance ranking, typo tolerance, and language analysis-that drive conversions and improve user experience.
@@ -2289,7 +2289,7 @@ The result was a transformative upgrade to the Dukaan platform. The new search w
 
 ###
 
-## Chapter 11: The Delivery Boy: CDNs for Static Assets
+## Chapter 12: The Delivery Boy: CDNs for Static Assets
 
 As our platform grew, so did our ambition. We were no longer just an Indian company; sellers were organically discovering us from all over the world. We had stores popping up in Southeast Asia, Europe, and even South America. We were solving a global problem.
 
@@ -2390,14 +2390,14 @@ The two-headed dragon was slain. With one relatively simple architectural change
 
 ###
 
-### **Chapter 11: Key Takeaways**
+### **Chapter 12: Key Takeaways**
 
 - **A CDN is a mandatory tool for any application with a geographically diverse user base.** It is one of the easiest and highest-impact changes you can make to improve global performance.
 - **CDNs solve two problems at once: speed and cost.** They reduce latency for your users by serving content from a nearby server, and they lower your costs by reducing expensive data transfer from your origin servers.
 - **Separate your static assets from your application server.** Use a dedicated object storage service like Amazon S3 as the origin for your CDN. This is a more scalable and cost-effective architecture.
 - **The implementation is straightforward:** Create a storage bucket for your original files, point a CDN distribution to that bucket, and update your application's HTML to use the new CDN URLs for your images, CSS, and JavaScript files.
 
-## Chapter 12: The Conductor: Orchestrating Everything with Kubernetes
+## Chapter 13: The Conductor: Orchestrating Everything with Kubernetes
 
 Docker had changed our world. The "it works on my machine" problem vanished. Our deployments were consistent, and our servers were packed more efficiently than ever before. We felt like we had discovered a superpower. We could package any piece of our application into a tidy, portable box and run it anywhere.
 
@@ -2675,7 +2675,7 @@ We wrote one more YAML file for our Ingress rule, ran kubectl apply, and just li
 
 We had done it. We had tamed the chaos of hundreds of containers. We had a conductor for our orchestra.
 
-### **Chapter 12: Key Takeaways**
+### **Chapter 13: Key Takeaways**
 
 - **Kubernetes is the conductor for your container orchestra.** It replaces manual, error-prone tasks with automated, declarative management.
 - **Embrace declarative configuration.** Instead of telling Kubernetes _how_ to do something, you write a YAML file that describes the final _state_ you want, and Kubernetes works to make it a reality.
@@ -2691,7 +2691,7 @@ This part of the book is about what happens next. It's about the moment an unexp
 
 ##
 
-## Chapter 13: The Shark Tank Effect: A Trial by Fire
+## Chapter 14: The Shark Tank Effect: A Trial by Fire
 
 In the Indian startup ecosystem, there is no greater, more terrifying, and more coveted event than the "Shark Tank Effect." When a small business is featured on the massively popular TV show _Shark Tank India_, their website traffic doesn't just increase; it experiences a near-vertical surge of hundreds of thousands of curious viewers in a matter of minutes. It is the ultimate trial by fire for any e-commerce platform.
 
@@ -2741,7 +2741,7 @@ The Jain Shikanji incident was a watershed moment for us. It was an accidental d
 
 This is the story of how we declared war on Shopify, and how we decided to make speed our single most important feature.
 
-### **Chapter 14: The War on Shopify: Performance as a Feature**
+### **Chapter 15: The War on Shopify: Performance as a Feature**
 
 By this point, Dukaan was a well-known name in the Indian market. We were growing fast. But to attract larger sellers and expand internationally, we were constantly being measured against the global titan of e-commerce: **Shopify**.
 
@@ -3132,7 +3132,7 @@ Building a powerful engine is one thing. Learning how to tune it for maximum per
 
 We had created a global, resilient, and lightning-fast platform. But it was expensive and, at times, still a black box. The next chapters are about our quest for efficiency, visibility, and total automation. It's the story of how we took our powerful machine and turned it into a truly world-class, cost-effective, and self-driving operation.
 
-## **Chapter 19: The Spotlight: From Accidental CTO to Tech Leader**
+## **Chapter 16: The Spotlight: From Accidental CTO to Tech Leader**
 
 For years, my world was a black screen with green text. My battles were fought in silence, against crashing servers and failing databases. Our successes were measured by uptime graphs and falling latency numbers. We had built an incredible machine, but we had built it in the dark.
 
@@ -3243,14 +3243,14 @@ When I read that, a lightbulb went on. He was right. The community wasn't just e
 
 In many ways, that podcast was the first draft of this book. It proved that telling your story, honestly and authentically, is the most powerful thing you can do-for your company, for your community, and for yourself.
 
-### **Chapter 19: Key Takeaways**
+### **Chapter 16: Key Takeaways**
 
 - **Your company's engineering story is one of your most powerful recruiting tools.** Top talent is attracted to hard problems, not just high salaries.
 - **Share your work publicly.** Writing blog posts, speaking at meetups, or appearing on podcasts can establish your company as a technology brand, making it a magnet for the best engineers.
 - **Authenticity is more powerful than credentials.** The ability to explain complex concepts in simple, story-driven ways, backed by real-world experience, resonates far more than academic knowledge.
 - **Step outside your comfort zone.** The greatest opportunities for growth-both for you and your company-often lie on the other side of your own fear and impostor syndrome.
 
-## Chapter 16: Escaping the Golden Cage: From AWS to Bare Metal
+## Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal
 
 We had done it. We had built our masterpiece on the best foundation we could find: Amazon Web Services. The cloud had given us the power to deploy servers around the world with a few clicks, to build a global database network, and to scale to incredible heights. We were living in a golden age of engineering, powered by the seemingly infinite resources of the cloud.
 
@@ -3360,7 +3360,7 @@ With the traffic fully migrated, we could safely log into the AWS console and te
 
 We then repeated this incredibly careful and deliberate process, region by region, over the next two months, until our entire global application was running on our own self-hosted, bare-metal infrastructure.
 
-### **Chapter 18: The Autopilot: CI/CD for a Global Network**
+### **Chapter 16: The Autopilot: CI/CD for a Global Network**
 
 We had reached a state of operational nirvana. Our global, self-hosted, bare-metal Kubernetes infrastructure was fast, resilient, and cheap. Our observability platform gave us unprecedented insight into every corner of our complex system. We had built a Formula 1 car, and we had the live telemetry to prove it.
 
@@ -3483,9 +3483,7 @@ With this system in place, our deployment process became a thing of beauty, simp
 
 This happens in parallel, automatically, across our entire global fleet. We had built a true autopilot. The hour-long, stressful, manual deployment ceremony was now a calm, five-second, auditable Git merge.
 
-###
-
-### **Chapter 18: Key Takeaways**
+### **Chapter 17: Key Takeaways**
 
 - **CI/CD is the foundation of modern, agile software delivery.** **Continuous Integration (CI)** ensures your code is always in a healthy state, while **Continuous Deployment (CD)** ensures you can deliver it to users safely and quickly.
 - **A CI pipeline is your automated quality gate.** It should automatically test your code, lint it for style, and produce a single, immutable artifact (like a Docker image) as its output.
@@ -3493,7 +3491,7 @@ This happens in parallel, automatically, across our entire global fleet. We had 
 - **Tools like Argo CD act as the automated agent for GitOps.** They continuously reconcile the state of your live cluster with the desired state defined in your Git repository.
 - We had finally mastered the process of changing our complex machine. Deployments were no longer a source of fear, but a routine, boring, and safe non-event.
 
-## Chapter 20: The Grand Finale: A Live Failover
+## Chapter 18: The Grand Finale: A Live Failover
 
 The story of Dukaan was no longer a secret. After the Scaler podcast, our engineering culture and my personal journey were out in the open. But it was our next move-the public announcement of our migration to bare metal and the almost unbelievable 95% cost savings-that truly set the Indian tech community ablaze.
 
@@ -3650,7 +3648,7 @@ We weren't afraid of a server failing because we had architected for failure. We
 
 The podcast was the ultimate proof. We had not just mastered the machine; we had demonstrated that mastery to the world.
 
-### **Chapter 20: Key Takeaways**
+### **Chapter 18: Key Takeaways**
 
 - **The ultimate test of a resilient system is its ability to handle live, unexpected failure with grace.** Don't just believe your system is resilient; test it.
 - **Radical transparency builds immense trust.** Showing your real architecture, your real numbers, and even trying to break your own systems in public is a powerful way to establish your credibility and attract the best talent.
@@ -3661,7 +3659,7 @@ The podcast was the ultimate proof. We had not just mastered the machine; we had
 
 ##
 
-## Chapter 21: The Accidental CTO
+## Chapter 19: The Accidental CTO
 
 You have just read the story of a system. Of servers, code, and global networks. It's a story of how an engine was built, piece by painful piece.
 
