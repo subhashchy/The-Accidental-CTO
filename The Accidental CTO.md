@@ -34,17 +34,17 @@
 
 - [Chapter 12: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes) — 189  
 
-- [Chapter 13: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire) — 211  
+- [Chapter 14: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire) — 211  
 
 - [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network](#chapter-15-our-global-brain-designing-the-dukaan-edge-network) — 230  
 
-- [Chapter 19: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader) — 252  
+- [Chapter 16: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader) — 252  
 
-- [Chapter 16: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal) — 262  
+- [Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal) — 262  
 
-- [Chapter 20: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) — 285  
+- [Chapter 18: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) — 285  
 
-- [Chapter 21: The Accidental CTO](#chapter-19-the-accidental-cto) — 299
+- [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto) — 299
 
 # The 3 AM Phone Call
 
