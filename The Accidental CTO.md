@@ -8,43 +8,43 @@
 
 ## **Subhash Choudhary**
 
-[Chapter 1: The 3 AM Phone Call 4](#_u6de6km862hh)
+- [Chapter 1: The 3 AM Phone Call](#chapter-1-the-3-am-phone-call) — 4
 
-[Chapter 2: The WhatsApp PDF Problem (The Origin) 17](#_jpj8ytq1n4qi)
+- [Chapter 2: The WhatsApp PDF Problem (The Origin)](#chapter-2-the-whatsapp-pdf-problem-the-origin) — 17
 
-[Chapter 3: The Great Divorce: Separating the App and the Database 34](#_ci63lo5eqqyu)
+- [Chapter 3: The Great Divorce: Separating the App and the Database](#chapter-3-the-great-divorce-separating-the-app-and-the-database) — 34
 
-[Chapter 4: The Traffic Cop: An Introduction to Load Balancing 55](#_fl1pki8qhwyn)
+- [Chapter 4: The Traffic Cop: An Introduction to Load Balancing](#chapter-4-the-traffic-cop-an-introduction-to-load-balancing) — 55
 
-[Chapter 5: The Bouncer at the Database Club: Read Replicas 71](#_z8rc7y1lb8vz)
+- [Chapter 5: The Bouncer at the Database Club: Read Replicas](#chapter-5-the-bouncer-at-the-database-club-read-replicas) — 71
 
-[Chapter 6: "Don't Test on Prod, Bro!": The Staging Environment 92](#_34q2kua08e9z)
+- [Chapter 6: "Don't Test on Prod, Bro!": The Staging Environment](#chapter-6-dont-test-on-prod-bro-the-staging-environment) — 92  
 
-[Chapter 7: The Need for Speed: Caching with Redis 108](#_v10yhvxlcf06)
+- [Chapter 7: The Need for Speed: Caching with Redis](#chapter-7-the-need-for-speed-caching-with-redis) — 108  
 
-[Chapter 8: Breaking the Monolith: Our First Microservice 124](#_vowee07q6el)
+- [Chapter 8: Breaking the Monolith: Our First Microservice](#chapter-8-breaking-the-monolith-our-first-microservice) — 124  
 
-[Chapter 9: The Unbreakable Promise: Data Consistency with Kafka 140](#_lnzg81vc2aku)
+- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka) — 140  
 
-[Chapter 10: The Shipping Container Revolution: An Introduction to Docker 152](#_k8hkd6a3d98)
+- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker) — 152  
 
-[Chapter 10: The Smart Clerk: Building World-Class Search 167](#_z9irczs38c8c)
+- [Chapter 10: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search) — 167  
 
-[Chapter 11: The Delivery Boy: CDNs for Static Assets 179](#_o41dd4ox352v)
+- [Chapter 11: The Delivery Boy: CDNs for Static Assets](#chapter-12-the-delivery-boy-cdns-for-static-assets) — 179  
 
-[Chapter 12: The Conductor: Orchestrating Everything with Kubernetes 189](#_kx2om11ikts4)
+- [Chapter 12: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes) — 189  
 
-[Chapter 13: The Shark Tank Effect: A Trial by Fire 211](#_p891riy2cibj)
+- [Chapter 13: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire) — 211  
 
-[Chapter 15: Our Global Brain: Designing the Dukaan Edge Network 230](#_r0yf2ulkgs4n)
+- [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network](#chapter-15-our-global-brain-designing-the-dukaan-edge-network) — 230  
 
-[Chapter 19: The Spotlight: From Accidental CTO to Tech Leader 252](#_gn25mxa5i1kk)
+- [Chapter 19: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader) — 252  
 
-[Chapter 16: Escaping the Golden Cage: From AWS to Bare Metal 262](#_ivxe0wn6yoxe)
+- [Chapter 16: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal) — 262  
 
-[Chapter 20: The Grand Finale: A Live Failover 285](#_30n2grez6urp)
+- [Chapter 20: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) — 285  
 
-[Chapter 21: The Accidental CTO 299](#_5xf0atdujnfq)
+- [Chapter 21: The Accidental CTO](#chapter-19-the-accidental-cto) — 299
 
 # The 3 AM Phone Call
 
