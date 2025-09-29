@@ -3727,7 +3727,7 @@ I didn't just see a one-time payment; I saw a machine. A machine that I could bu
 
 The machine grew. Within a few months, by 2013, my little blog empire was generating over **\$10,000 a month**. I had found my escape from the corporate world. I was free. But I was still just a one-man army. My quest to build something truly massive was just about to begin.
 
-### **Part 3: Summit Shah**
+### **Part 3: Suumit Shah**
 
 I had achieved a level of financial freedom I could have never imagined in my village in Bihar. But I was a one-man army, and I was hitting the limits of what a single person could do. The next phase of my journey wasn't about working harder; it was about working smarter. It was about turning my manual processes into automated systems.
 
