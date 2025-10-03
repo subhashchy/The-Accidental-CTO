@@ -2,11 +2,7 @@
 
 # **How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree.**
 
-##
-
-## **A System Design Handbook by**
-
-## **Subhash Choudhary**
+**A System Design Handbook written by Subhash Choudhary**
 
 - [Chapter 1: The 3 AM Phone Call](#chapter-1-the-3-am-phone-call) — 4
 
