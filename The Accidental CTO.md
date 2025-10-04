@@ -1,7 +1,8 @@
 **The Accidental CTO**
 
-# How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree.
+> **"How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree."**
 
+<img width="1024" height="1024" alt="Book Cover Image by Hitesh" src="https://github.com/user-attachments/assets/729ade4e-3375-4ea3-8e07-ebc3c62ae900" />
 **A System Design Handbook written by Subhash Choudhary**
 
 - [Chapter 1: The 3 AM Phone Call](#chapter-1-the-3-am-phone-call) — 4
