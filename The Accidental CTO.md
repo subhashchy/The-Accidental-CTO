@@ -2542,7 +2542,7 @@ It was time to write the sheet music for our storefront-service. We created a fi
 
 Let's break down our first Deployment blueprint, line by line.
 
-YAML
+```YAML
 
 \# 1. The API version and Kind tell Kubernetes what type of object this is.
 
@@ -2609,6 +2609,8 @@ image: dukaan/storefront:v2.1
 ports:
 
 \- containerPort: 8000
+
+```
 
 #### **The Magic of kubectl apply**
 
