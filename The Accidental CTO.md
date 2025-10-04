@@ -78,7 +78,7 @@ Did our cloud provider have an outage? Was this out of our hands completely?
 
 My fingers, still clumsy with sleep, flew across the keyboard. I opened the terminal, the black screen with green text that was my window into our entire operation. This was my command center.
 
-``` ssh <root@dukaan.app> ```
+```ssh <root@dukaan.app>```
 
 I hit Enter.
 
