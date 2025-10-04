@@ -1,6 +1,6 @@
 **The Accidental CTO**
 
-# **How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree.**
+# How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree.
 
 **A System Design Handbook written by Subhash Choudhary**
 
@@ -198,7 +198,7 @@ Our storefronts were getting thousands of visitors (the "main course" was very p
 
 Our monolith, running on our tiny single server, was the perfect storm. A single point of failure in terms of software, running on a single point of failure in terms of hardware. It was a time bomb, and at 3:14 AM on a Tuesday, it had finally exploded.
 
-### **Chapter 1: Key Takeaways**
+### Chapter 1: Key Takeaways
 
 - **Your first server will always fail.** It's not a matter of _if_, but _when_. The goal is not to prevent failure, but to recover from it quickly and learn from it.
 - **Master the fundamentals.** Before you learn about complex architectures, deeply understand what a server is. Think in terms of **CPU (Chef's Speed)**, **RAM (Countertop Space)**, and **Disk (Pantry)**.
@@ -206,9 +206,9 @@ Our monolith, running on our tiny single server, was the perfect storm. A single
 - **Starting with a monolith is a feature, not a bug.** Prioritize speed of development above all else in the beginning. Don't over-engineer your initial product.
 - **Recognize that your initial choices have a shelf life.** The architecture that gets you to your first 10,000 users will not get you to 100,000. Be prepared to evolve.
 
-## **Chapter 2: The WhatsApp PDF Problem (The Origin)**
+## Chapter 2: The WhatsApp PDF Problem (The Origin)
 
-### **Part 1: The Idea and the Skateboard**
+### Part 1: The Idea and the Skateboard
 
 Every startup story begins with a problem. Ours began with a grainy PDF and the chaos of a nationwide lockdown.
 
@@ -246,7 +246,7 @@ That phone call was the spark. But an idea is just a thought. To turn it into so
 
 This brings us to one of the most important concepts for any aspiring founder or techie: the **MVP**.
 
-#### **Technical Deep Dive: The Minimum Viable Product (MVP)**
+#### Technical Deep Dive: The Minimum Viable Product (MVP)
 
 The term MVP, or Minimum Viable Product, is thrown around a lot in the tech world. Most people think it means building a smaller, buggier version of your final product. That's wrong.
 
@@ -278,7 +278,7 @@ With the plan set, we gave ourselves a challenge. No long development cycles. No
 
 **The 48-hour hackathon was on.** The clock was ticking. Now, we had to make our first big technical decision: what tools would we use to build our skateboard?
 
-### **Part 2: Choosing Our Tools**
+### Part 2: Choosing Our Tools
 
 The 48-hour clock was ticking. We had our "what"-the MVP, our digital skateboard. Now we needed the "how." What tools would we use to build it?
 
@@ -288,7 +288,7 @@ For a weekend hackathon, the choice is governed by one principle above all else:
 
 This meant choosing tools that were familiar, reliable, and did a lot of the heavy lifting for us.
 
-#### **Technical Deep Dive: The Language and Framework**
+#### Technical Deep Dive: The Language and Framework
 
 Our first and most important choice was the programming language and the framework.
 
@@ -314,7 +314,7 @@ Of course, Django wasn't the only option. In tech, there are always a dozen ways
 - **Node.js with Express:** This was a popular alternative. Node.js allows you to write your server-side code in JavaScript, the same language that runs in web browsers. This is a huge advantage for many teams. The framework, Express, is very minimalist and flexible. But that was its downside for us. Express is less like a pre-fab house kit and more like a high-quality box of LEGOs. It gives you the basic building blocks, but you have to assemble everything yourself. For a 48-hour build, we didn't want that much freedom; we wanted the structure and pre-built components of Django's "batteries-included" approach.
 - **Ruby on Rails:** This was a much closer competitor. Rails has a very similar philosophy to Django. It values "convention over configuration," meaning it makes a lot of smart decisions for you to speed up development. Honestly, Rails would have been a great choice too. The final decision came down to personal preference and familiarity. I had spent more time with Python and Django, and in a speedrun, you always bet on the tools you know best.
 
-#### **Technical Deep Dive: The Database**
+#### Technical Deep Dive: The Database
 
 With the framework chosen, we needed to decide where we would permanently store all our information-the store names, product details, prices, etc. We needed a **database**. If the framework is the house kit, the database is the foundation it's built on. It needs to be solid, reliable, and organized.
 
@@ -338,7 +338,7 @@ So, the blueprint was ready. Our tech stack was decided:
 
 We had our building materials. Now it was time to pour the foundation and put up the first walls. It was time to set up our server.
 
-### **Part 3: Pouring the Foundation**
+### Part 3: Pouring the Foundation
 
 With our tech stack decided, the theoretical part was over. It was time to make something real. We needed a place for our code to live on the internet. We needed a server.
 
@@ -348,7 +348,7 @@ Choosing a server provider in the early days is about finding the right balance 
 
 For that, we turned to **DigitalOcean**.
 
-#### **Technical Deep Dive: Setting Up Your First Server**
+#### Technical Deep Dive: Setting Up Your First Server
 
 DigitalOcean became popular with developers for one reason: it made getting a server incredibly simple. They called their servers "Droplets," a friendly name that removed the intimidating aura of traditional server hosting.
 
@@ -402,7 +402,7 @@ Our skateboard was built. The 48 hours were almost up. It was time to see if any
 - **Start small and simple with your infrastructure.** A \$5/month server is more than enough to handle your first few thousand users. Don't overcomplicate or overspend on cloud services until you have a proven need.
 - **Understand the roles of a web server (Nginx) and an application server (Gunicorn).** This fundamental pattern of a "waiter" and a "kitchen manager" is the backbone of how modern web applications are served.
 
-## **Chapter 3: The Great Divorce: Separating the App and the Database**
+## Chapter 3: The Great Divorce: Separating the App and the Database
 
 ### **Part 1: The Morning After**
 
