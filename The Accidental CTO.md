@@ -1,49 +1,49 @@
 **The Accidental CTO**
 
 # "How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree."
-**A System Design Handbook written by Subhash Choudhary**
+**A System Design E-Book written by Subhash Choudhary**
 
-![Book Cover](https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252)
+![E-Book Cover](https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252)
 
 # Chapters
 
-- [Chapter 1: The 3 AM Phone Call](#chapter-1-the-3-am-phone-call) — 4
+- [Chapter 1: The 3 AM Phone Call](#chapter-1-the-3-am-phone-call)
 
-- [Chapter 2: The WhatsApp PDF Problem (The Origin)](#chapter-2-the-whatsapp-pdf-problem-the-origin) — 17
+- [Chapter 2: The WhatsApp PDF Problem (The Origin)](#chapter-2-the-whatsapp-pdf-problem-the-origin)
 
-- [Chapter 3: The Great Divorce: Separating the App and the Database](#chapter-3-the-great-divorce-separating-the-app-and-the-database) — 34
+- [Chapter 3: The Great Divorce: Separating the App and the Database](#chapter-3-the-great-divorce-separating-the-app-and-the-database)
 
-- [Chapter 4: The Traffic Cop: An Introduction to Load Balancing](#chapter-4-the-traffic-cop-an-introduction-to-load-balancing) — 55
+- [Chapter 4: The Traffic Cop: An Introduction to Load Balancing](#chapter-4-the-traffic-cop-an-introduction-to-load-balancing)
 
-- [Chapter 5: The Bouncer at the Database Club: Read Replicas](#chapter-5-the-bouncer-at-the-database-club-read-replicas) — 71
+- [Chapter 5: The Bouncer at the Database Club: Read Replicas](#chapter-5-the-bouncer-at-the-database-club-read-replicas)
 
-- [Chapter 6: "Don't Test on Prod, Bro!": The Staging Environment](#chapter-6-dont-test-on-prod-bro-the-staging-environment) — 92  
+- [Chapter 6: "Don't Test on Prod, Bro!": The Staging Environment](#chapter-6-dont-test-on-prod-bro-the-staging-environment)
 
-- [Chapter 7: The Need for Speed: Caching with Redis](#chapter-7-the-need-for-speed-caching-with-redis) — 108  
+- [Chapter 7: The Need for Speed: Caching with Redis](#chapter-7-the-need-for-speed-caching-with-redis)
 
-- [Chapter 8: Breaking the Monolith: Our First Microservice](#chapter-8-breaking-the-monolith-our-first-microservice) — 124  
+- [Chapter 8: Breaking the Monolith: Our First Microservice](#chapter-8-breaking-the-monolith-our-first-microservice)
 
-- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka) — 140  
+- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka) 
 
-- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker) — 152  
+- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker)  
 
-- [Chapter 11: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search) — 167  
+- [Chapter 11: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search)
 
-- [Chapter 12: The Delivery Boy: CDNs for Static Assets](#chapter-12-the-delivery-boy-cdns-for-static-assets) — 179  
+- [Chapter 12: The Delivery Boy: CDNs for Static Assets](#chapter-12-the-delivery-boy-cdns-for-static-assets)
 
-- [Chapter 13: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes) — 189  
+- [Chapter 13: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes)
 
-- [Chapter 14: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire) — 211  
+- [Chapter 14: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire)
 
-- [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network](#chapter-15-our-global-brain-designing-the-dukaan-edge-network) — 230  
+- [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network](#chapter-15-our-global-brain-designing-the-dukaan-edge-network)
 
-- [Chapter 16: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader) — 252  
+- [Chapter 16: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader)
 
-- [Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal) — 262  
+- [Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal)
 
-- [Chapter 18: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) — 285  
+- [Chapter 18: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) 
 
-- [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto) — 299
+- [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto)
 
 - [🖊️ Suggest Edits](https://github.com/hitesh-c/The-Accidental-CTO)
 
@@ -63,7 +63,8 @@ Suumit Shah, my co-founder, my partner-in-crime, the business brain to my builde
 
 I swiped to answer, my voice a dry, croaky mess. "Hello?"
 
-"Subhash! Uth! Sab bandh ho gaya hai!" Suumit's voice was a shotgun blast of adrenaline and panic through the phone speaker. _Wake up! Everything's shut down!_
+> "Subhash! Uth! Sab bandh ho gaya hai!" 
+Suumit's voice was a shotgun blast of adrenaline and panic through the phone speaker. _Wake up! Everything's shut down!_
 
 He didn't need to say more. I was already out of bed, the cold floor a shock to my system. I stumbled towards my laptop, the familiar white glow of the Apple logo a beacon in the dark room. My mind was a whirlwind, a frantic checklist of digital disasters.
 
@@ -79,7 +80,7 @@ Did our cloud provider have an outage? Was this out of our hands completely?
 
 My fingers, still clumsy with sleep, flew across the keyboard. I opened the terminal, the black screen with green text that was my window into our entire operation. This was my command center.
 
-ssh <root@dukaan.app>
+``` ssh <root@dukaan.app> ```
 
 I hit Enter.
 
@@ -91,7 +92,7 @@ My mind raced. If the server is this slow, it's not a simple code bug. It's some
 
 I typed my first diagnostic command, a simple tool to check the server's vitals.
 
-htop
+``` htop ```
 
 The result that filled the screen made my blood run cold. It was a sea of red.
 
@@ -806,7 +807,7 @@ I opened the Nginx configuration file (/etc/nginx/nginx.conf) and added two smal
 
 **Our Nginx Load Balancer Configuration**
 
-Nginx
+```Nginx
 
 \# Define the group of servers that will handle the application work.
 
@@ -855,6 +856,7 @@ proxy_set_header X-Real-IP \$remote_addr;
 }
 
 }
+```
 
 That was it. The upstream block defined our fleet. The least_conn; line set our intelligent routing strategy. And the proxy_pass directive told Nginx to start directing traffic. After saving the file and restarting Nginx, our load balancer was live.
 
