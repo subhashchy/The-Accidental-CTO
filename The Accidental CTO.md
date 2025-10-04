@@ -78,7 +78,7 @@ Did our cloud provider have an outage? Was this out of our hands completely?
 
 My fingers, still clumsy with sleep, flew across the keyboard. I opened the terminal, the black screen with green text that was my window into our entire operation. This was my command center.
 
-```ssh <root@dukaan.app>```
+> ssh <root@dukaan.app>
 
 I hit Enter.
 
@@ -90,7 +90,7 @@ My mind raced. If the server is this slow, it's not a simple code bug. It's some
 
 I typed my first diagnostic command, a simple tool to check the server's vitals.
 
-``` htop ```
+> htop
 
 The result that filled the screen made my blood run cold. It was a sea of red.
 
@@ -204,7 +204,7 @@ Our storefronts were getting thousands of visitors (the "main course" was very p
 
 Our monolith, running on our tiny single server, was the perfect storm. A single point of failure in terms of software, running on a single point of failure in terms of hardware. It was a time bomb, and at 3:14 AM on a Tuesday, it had finally exploded.
 
-### Chapter 1: Key Takeaways
+## Chapter 1: Key Takeaways
 
 - **Your first server will always fail.** It's not a matter of _if_, but _when_. The goal is not to prevent failure, but to recover from it quickly and learn from it.
 - **Master the fundamentals.** Before you learn about complex architectures, deeply understand what a server is. Think in terms of **CPU (Chef's Speed)**, **RAM (Countertop Space)**, and **Disk (Pantry)**.
@@ -400,7 +400,7 @@ It worked. A simple "Hello, World" page served from our tiny \$5 server.
 
 Our skateboard was built. The 48 hours were almost up. It was time to see if anyone wanted to ride it.
 
-### Chapter 2: Key Takeaways
+## Chapter 2: Key Takeaways
 
 - **The MVP is an experiment to test your core hypothesis, not a small version of your final product.** Its goal is to maximize learning, not features. Define your "skateboard" before you write a single line of code.
 - **Choose your initial tech stack for speed and familiarity.** In the beginning, "time to market" is the most important metric. Pick "batteries-included" frameworks like Django or Rails that do the heavy lifting for you.
@@ -653,7 +653,7 @@ We didn't have a "Big Data" problem. We had a classic e-commerce transaction pro
 
 ###
 
-### Chapter 3: Key Takeaways
+## Chapter 3: Key Takeaways
 
 - **Separating your application and database servers is the first crucial step in scaling.** It allows each component to do what it does best without fighting for resources.
 - **Every solution creates a new problem.** Moving to a distributed system introduces network latency as a major performance bottleneck you must now account for.
@@ -887,7 +887,7 @@ With an entire fleet of powerful application servers all hammering it with reque
 
 We had successfully scaled our "kitchen," but our "library" was still a single room with a single librarian. And it was about to be overwhelmed.
 
-### Chapter 4: Key Takeaways
+## Chapter 4: Key Takeaways
 
 - **Horizontal scaling is the only long-term path to high availability and massive scale.** It's more complex than vertical scaling but is cost-effective, flexible, and eliminates single points of failure.
 - **A load balancer is the essential traffic cop that makes horizontal scaling possible.** It distributes requests across a fleet of servers and routes around failures.
@@ -1154,7 +1154,7 @@ This approach gave us the best of both worlds: massive scalability for the gener
 
 ###
 
-### Chapter 5: Key Takeaways
+## Chapter 5: Key Takeaways
 
 - **Scaling your database with read replicas is a huge performance win, but it comes at a cost.** You are trading the simplicity of strong consistency for the complexity of eventual consistency.
 - **Replication lag is a physical reality, not a bug.** There will always be a small delay between your master and your replica. You cannot eliminate it, so you must design your application to handle it.
@@ -1353,7 +1353,7 @@ This process transformed our team. It replaced chaos with order, anxiety with co
 
 ###
 
-### Chapter 6: Key Takeaways
+## Chapter 6: Key Takeaways
 
 - **A staging environment is a non-negotiable insurance policy against self-inflicted outages.** The cost of building and maintaining it is tiny compared to the cost of a production failure.
 - **Your staging environment must be a MIRROR of production.** Identical hardware, software, and architecture are essential to catch real-world bugs.
@@ -1607,7 +1607,7 @@ Now, when Priya refreshes her store page, our application code checks Redis. It 
 
 ###
 
-### Chapter 7: Key Takeaways
+## Chapter 7: Key Takeaways
 
 - **Speed is a feature.** A slow website is a broken website. Caching is the most powerful tool for improving application performance.
 - **Redis is a phenomenal tool for caching.** Its in-memory, key-value nature makes it orders of magnitude faster than a traditional disk-based database for temporary data storage.
@@ -1832,7 +1832,7 @@ But what happens when we extract a more complex service, like Orders?
 
 Our simple point-to-point communication methods wouldn't work. We had just opened Pandora's box. We were no longer just application developers; we were now forced to become distributed systems engineers.
 
-### Chapter 8: Key Takeaways
+## Chapter 8: Key Takeaways
 
 - **Never rewrite a complex system from scratch.** The risk is too high. A gradual, piece-by-piece replacement is the safer and more effective path.
 - **The Strangler Fig Pattern is the gold standard for incrementally replacing a monolith.** It allows you to build and validate your new services with real traffic, minimizing risk at every step.
@@ -1973,7 +1973,7 @@ Kafka is incredibly powerful, but it's not magic. It's a complex piece of infras
 
 We had traded the fragility of our old system for the **operational complexity** of the new one. Our simple house was now a complex estate with its own power plant. The power plant is far more reliable, but it requires skilled engineers to maintain it. This was a necessary trade-off, the price of admission for building a true microservices architecture.
 
-### Chapter 9: Key Takeaways
+## Chapter 9: Key Takeaways
 
 - **A simple messaging system is a single point of failure.** For reliable communication between services, you need a durable, persistent event log like Apache Kafka.
 - **Change Data Capture (CDC) is a powerful pattern.** Using tools like Debezium to stream changes directly from your database log is far more reliable and decouples your application code from your messaging system.
@@ -2169,7 +2169,7 @@ We were now the proud owners of a massive orchestra of containers. But we were t
 
 We needed a conductor. We needed an automated system to manage the entire lifecycle of our containers at scale. We needed a **container orchestrator**. We were ready to take the next, giant leap in our infrastructure journey: it was time to learn **Kubernetes**.
 
-### Chapter 10: Key Takeaways
+## Chapter 10: Key Takeaways
 
 - **Docker solves the two-headed dragon of inconsistency ("it works on my machine") and inefficiency (underutilized servers).**
 - **A Dockerfile is a blueprint for your application's environment.** It codifies your dependencies, ensuring your application runs the same way everywhere.
@@ -2285,7 +2285,7 @@ This system was beautiful. The monolith application, which handled the seller's 
 
 The result was a transformative upgrade to the Dukaan platform. The new search was typo-tolerant, context-aware, and returned highly relevant results in milliseconds. Our sellers were overjoyed; their products were now easily discoverable, and we saw a direct and significant increase in sales originating from the search bar. We had turned a critical weakness into a powerful, best-in-class feature.
 
-### Chapter 11: Key Takeaways
+## Chapter 11: Key Takeaways
 
 - A simple database query (like SQL LIKE) is not a substitute for a real search engine. For a good e-commerce experience, you need a specialized tool.
 - **Elasticsearch** is a powerful solution that provides the critical features-relevance ranking, typo tolerance, and language analysis-that drive conversions and improve user experience.
@@ -2395,7 +2395,7 @@ The two-headed dragon was slain. With one relatively simple architectural change
 
 ###
 
-### Chapter 12: Key Takeaways
+## Chapter 12: Key Takeaways
 
 - **A CDN is a mandatory tool for any application with a geographically diverse user base.** It is one of the easiest and highest-impact changes you can make to improve global performance.
 - **CDNs solve two problems at once: speed and cost.** They reduce latency for your users by serving content from a nearby server, and they lower your costs by reducing expensive data transfer from your origin servers.
@@ -2682,7 +2682,7 @@ We wrote one more YAML file for our Ingress rule, ran kubectl apply, and just li
 
 We had done it. We had tamed the chaos of hundreds of containers. We had a conductor for our orchestra.
 
-### Chapter 13: Key Takeaways
+## Chapter 13: Key Takeaways
 
 - **Kubernetes is the conductor for your container orchestra.** It replaces manual, error-prone tasks with automated, declarative management.
 - **Embrace declarative configuration.** Instead of telling Kubernetes _how_ to do something, you write a YAML file that describes the final _state_ you want, and Kubernetes works to make it a reality.
@@ -2748,7 +2748,7 @@ The Jain Shikanji incident was a watershed moment for us. It was an accidental d
 
 This is the story of how we declared war on Shopify, and how we decided to make speed our single most important feature.
 
-### Chapter 15: The War on Shopify: Performance as a Feature
+## Chapter 15: The War on Shopify: Performance as a Feature
 
 By this point, Dukaan was a well-known name in the Indian market. We were growing fast. But to attract larger sellers and expand internationally, we were constantly being measured against the global titan of e-commerce: **Shopify**.
 
@@ -2868,7 +2868,7 @@ Excellent. This is a crucial part of the story. The public battle with Shopify a
 
 Here is the story of how we onboarded our first enterprise juggernaut, and how it forced us to evolve our database architecture once again. This new chapter will fit perfectly after our deep dive into the edge network.
 
-### Chapter 16: The Whale: Onboarding an Enterprise Juggernaut
+## Chapter 16: The Whale: Onboarding an Enterprise Juggernaut
 
 Our public performance tests and the story of the Shark Tank effect started making waves in the Indian D2C community. Our message was clear and backed by data: Dukaan was faster than Shopify. This bold claim acted like a magnet, attracting not just the small sellers we had started with, but also much bigger fish.
 
@@ -3123,7 +3123,7 @@ Let's walk through the exact sequence of events during a massive traffic spike:
 
 This multi-layered system-combining proactive global distribution with reactive local scaling-was our masterpiece. It allowed us to absorb the most extreme, unpredictable traffic spikes imaginable, not just surviving them, but doing so without our on-call engineers even receiving a single alert. It was the ultimate validation of our long and complex journey to the edge.
 
-### Chapter 15: Key Takeaways
+## Chapter 15: Key Takeaways
 
 - **To achieve global low latency, you must move both compute and data to the edge.** A regional application server is useless if it has to make a cross-continental call to a central database.
 - **Anycast IP is the magic that makes global routing seamless.** It allows you to use a single IP address to automatically direct users to the nearest physical data center.
@@ -3250,7 +3250,7 @@ When I read that, a lightbulb went on. He was right. The community wasn't just e
 
 In many ways, that podcast was the first draft of this book. It proved that telling your story, honestly and authentically, is the most powerful thing you can do-for your company, for your community, and for yourself.
 
-### Chapter 16: Key Takeaways
+## Chapter 16: Key Takeaways
 
 - **Your company's engineering story is one of your most powerful recruiting tools.** Top talent is attracted to hard problems, not just high salaries.
 - **Share your work publicly.** Writing blog posts, speaking at meetups, or appearing on podcasts can establish your company as a technology brand, making it a magnet for the best engineers.
@@ -3367,7 +3367,7 @@ With the traffic fully migrated, we could safely log into the AWS console and te
 
 We then repeated this incredibly careful and deliberate process, region by region, over the next two months, until our entire global application was running on our own self-hosted, bare-metal infrastructure.
 
-### Chapter 16: The Autopilot: CI/CD for a Global Network
+## Chapter 16: The Autopilot: CI/CD for a Global Network
 
 We had reached a state of operational nirvana. Our global, self-hosted, bare-metal Kubernetes infrastructure was fast, resilient, and cheap. Our observability platform gave us unprecedented insight into every corner of our complex system. We had built a Formula 1 car, and we had the live telemetry to prove it.
 
@@ -3490,7 +3490,7 @@ With this system in place, our deployment process became a thing of beauty, simp
 
 This happens in parallel, automatically, across our entire global fleet. We had built a true autopilot. The hour-long, stressful, manual deployment ceremony was now a calm, five-second, auditable Git merge.
 
-### Chapter 17: Key Takeaways
+## Chapter 17: Key Takeaways
 
 - **CI/CD is the foundation of modern, agile software delivery.** **Continuous Integration (CI)** ensures your code is always in a healthy state, while **Continuous Deployment (CD)** ensures you can deliver it to users safely and quickly.
 - **A CI pipeline is your automated quality gate.** It should automatically test your code, lint it for style, and produce a single, immutable artifact (like a Docker image) as its output.
@@ -3655,7 +3655,7 @@ We weren't afraid of a server failing because we had architected for failure. We
 
 The podcast was the ultimate proof. We had not just mastered the machine; we had demonstrated that mastery to the world.
 
-### Chapter 18: Key Takeaways**
+## Chapter 18: Key Takeaways**
 
 - **The ultimate test of a resilient system is its ability to handle live, unexpected failure with grace.** Don't just believe your system is resilient; test it.
 - **Radical transparency builds immense trust.** Showing your real architecture, your real numbers, and even trying to break your own systems in public is a powerful way to establish your credibility and attract the best talent.
@@ -3809,7 +3809,7 @@ Our mission is to help the next 70 million merchants in India go truly digital, 
 
 And to think, it all started with a single "hello" message.
 
-### **Dedication**
+# Dedication
 
 **For Suumit Shah**
 
