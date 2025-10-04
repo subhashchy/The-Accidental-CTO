@@ -1,9 +1,12 @@
-**The Accidental CTO**
+<p align="center">
+  <strong style="font-size: 28px;">📘 The Accidental CTO</strong><br><br>
+  <em style="font-size: 22px;">"How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree."</em><br><br>
+  <strong>A System Design E-Book written by Subhash Choudhary</strong>
+</p>
 
-# "How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree."
-**A System Design E-Book written by Subhash Choudhary**
-
-![E-Book Cover](https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252" alt="E-Book Cover" width="300">
+</p>
 
 # Chapters
 
@@ -45,7 +48,7 @@
 
 - [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto)
 
-- [🖊️ Suggest Edits](https://github.com/hitesh-c/The-Accidental-CTO)
+- [🖊️ Make Corrections ](https://github.com/hitesh-c/The-Accidental-CTO/blob/main/The%20Accidental%20CTO.md)
 
 <br/>
 
