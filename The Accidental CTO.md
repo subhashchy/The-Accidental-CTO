@@ -46,7 +46,7 @@
 
 - [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto) — 299
 
-# The 3 AM Phone Call
+## **Chapter 1: The 3 AM Phone Call**
 
 ### **Part 1: The Crash**
 
