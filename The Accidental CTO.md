@@ -4,7 +4,7 @@
 </p>
 <p>
   <h1 style="font-size:54px; font-style:italic;">
-    "How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree."
+    How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree.
   </h1>
   <br><br>
   <p style="font-size:18px; font-weight:600;">
