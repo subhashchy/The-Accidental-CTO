@@ -1,7 +1,9 @@
 <p align="center">
   <span style="font-size:42px; font-weight:700;">The Accidental CTO</span>
   <br><br>
-  <span style="font-size:24px; font-style:italic;">
+</p>
+<p>
+  <span style="font-size:54px; font-style:italic;">
     "How I Scaled from Zero to a Million Store on Dukaan, Without a CS Degree."
   </span>
   <br><br>
@@ -9,7 +11,7 @@
     A System Design E-Book written by Subhash Choudhary
   </span>
   <br><br>
-  <img src="https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252" alt="E-Book Cover" width="350">
+  <img src="https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252" alt="E-Book Cover" width="1024">
 </p>
 
 
