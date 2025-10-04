@@ -1469,7 +1469,7 @@ Our application would now follow a "read-through cache" logic. The code to fetch
 
 **Simplified Python Code Snippet**
 
-Python
+```python
 
 import redis
 
@@ -1524,6 +1524,8 @@ redis_client.set(cache_key, json_data, ex=3600)
 \# 7. Return the data to the user.
 
 return store_data_from_db
+
+```
 
 This logic was a game-changer. The very first person to visit the gavranmisal.com store after we deployed this would trigger a "CACHE MISS". Their request would be slow as our server did the hard work of querying the database and building the JSON object. But in the process, it would save that final JSON object to Redis.
 
