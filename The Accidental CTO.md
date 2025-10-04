@@ -10,9 +10,10 @@
   <span style="font-size:18px; font-weight:600;">
     A System Design E-Book written by Subhash Choudhary
   </span>
-  <br><br>
-  <img src="https://github.com/user-attachments/assets/1ed31663-2fae-40c8-811c-f3bcfb67e252" alt="E-Book Cover" width="1024">
 </p>
+
+![Book Cover ](https://github.com/user-attachments/assets/8f527042-fd7e-43bb-ac63-8c179fe19f28)
+
 
 
 # Chapters
