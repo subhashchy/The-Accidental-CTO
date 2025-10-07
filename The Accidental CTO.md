@@ -803,7 +803,7 @@ I opened the Nginx configuration file (/etc/nginx/nginx.conf) and added two smal
 
 **Our Nginx Load Balancer Configuration**
 
-Nginx
+```nginx
 
 \# Define the group of servers that will handle the application work.
 
@@ -852,7 +852,7 @@ proxy_set_header X-Real-IP \$remote_addr;
 }
 
 }
-
+```
 That was it. The upstream block defined our fleet. The least_conn; line set our intelligent routing strategy. And the proxy_pass directive told Nginx to start directing traffic. After saving the file and restarting Nginx, our load balancer was live.
 
 ####
