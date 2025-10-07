@@ -505,7 +505,7 @@ Think of it like this: pg_dump is a magical scribe who walks into your library, 
 
 While still on our original, all-in-one server, I ran the command:
 
-pg_dump -U postgres dukaan_prod > dukaan_backup.sql
+```pg_dump -U postgres dukaan_prod > dukaan_backup.sql```
 
 I watched as the server's CPU spiked. It was working hard to create this snapshot. After a few minutes, it was done. We now had a file, dukaan_backup.sql, that contained the entire soul of our company.
 
@@ -513,13 +513,13 @@ I watched as the server's CPU spiked. It was working hard to create this snapsho
 
 Now we had the blueprint, but it was on the wrong server. We needed to securely transfer this backup file from our old server to our new, empty database server. For this, we used another command-line tool called scp (Secure Copy).
 
-scp dukaan_backup.sql root@142.93.218.155:/root/
+```scp dukaan_backup.sql root@142.93.218.155:/root/```
 
 This command securely copied our backup file over the network. Now, the new library had the "Instructions" book.
 
 With the backup file on the new server, it was time to rebuild. I SSH'd into the new DB server, created an empty database shell called dukaan_prod, and then ran the command to restore from the backup:
 
-psql -U postgres -d dukaan_prod < dukaan_backup.sql
+```psql -U postgres -d dukaan_prod < dukaan_backup.sql```
 
 This command does the reverse of pg_dump. It reads the giant instruction file and executes every command, line by line. It creates the tables, inserts the data, and rebuilds the relationships. I watched the screen, praying no errors would pop up. A few minutes later, it finished.
 
@@ -575,7 +575,7 @@ For a single request, this latency might be tiny-maybe just 1 or 2 milliseconds 
 
 A single page load could easily result in 10, 20, or even 50 separate trips to the database. Before the divorce, those 50 trips were practically free. Now, they had a real-world cost.
 
-50 trips \* 2ms latency per trip = 100ms
+```50 trips * 2ms latency per trip = 100ms```
 
 Suddenly, we had added a tenth of a second of loading time from network latency alone, even if both servers were performing their individual tasks instantly. This was our new bottleneck. We couldn't just throw more hardware at it. We had to get smarter. We had to optimize our code to be less "chatty" with the database.
 
