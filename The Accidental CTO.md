@@ -1370,7 +1370,7 @@ We were fetching the store's details, then its theme settings, then all its cate
 
 Even though our read replica was powerful and each of those 114 queries was individually very fast (maybe 5-10 milliseconds each), the cumulative effect was devastating.
 
-114 queries \* 10ms per query = 1140ms
+```114 queries * 10ms per query = 1140ms```
 
 That's over a full second of just database time, a concept called "death by a thousand cuts." Add in the network latency for each of those calls and the time for our server to render the page, and the 5-6 second load time started to make perfect sense.
 
@@ -2117,7 +2117,9 @@ Suumit saw the business impact immediately. We dove into our analytics. The data
 
 The root cause was the simple, naive way we had implemented search in our hurry to build the MVP. When a user typed a query, we were running a basic SQL command against our PostgreSQL database that looked something like this:
 
-SELECT \* FROM products WHERE name ILIKE '%running shoes%';
+```sql
+SELECT * FROM products WHERE name ILIKE '%running shoes%';
+```
 
 The ILIKE command in Postgres performs a case-insensitive, substring search. It asks the database, "Are the letters 'r-u-n-n-i-n-g- -s-h-o-e-s' present, in that exact order, somewhere inside the product name?"
 
@@ -2156,7 +2158,11 @@ Here's how the genius assistant works its magic:
 
 Before you ever search, Elasticsearch reads all your product data and builds a map that looks like a textbook index. It maps every single word to a list of all the products that contain that word.
 
-"nike" -> \[Product 1, Product 5, Product 88\] "running" -> \[Product 1, Product 7, Product 23, Product 88\] "shoes" -> \[Product 1, Product 23, Product 55, Product 88\]
+```
+"nike" -> [Product 1, Product 5, Product 88]
+"running" -> [Product 1, Product 7, Product 23, Product 88]
+"shoes" -> [Product 1, Product 23, Product 55, Product 88]
+```
 
 When you search for "nike running shoes," Elasticsearch doesn't read the products. It just looks at its index, finds the lists for "nike," "running," and "shoes," and instantly finds the products that are common to all three lists (in this case, Product 1 and Product 88). This is why it can find matches in millions of documents in milliseconds.
 
@@ -2690,7 +2696,7 @@ But loading a secure webpage isn't one conversation; it's a series of them that 
 
 Just to get the first byte of the HTML page, a user in India had to wait for at least 5 round trips.
 
-5 round trips \* 130ms/trip = 650ms
+```5 round trips * 130ms/trip = 650ms```
 
 This meant a Shopify store hosted in the US was guaranteed to have _at least_ a 650ms delay for an Indian user before anything even started to appear on the screen. And that's before accounting for network congestion and the time it takes to download all the images, CSS, and JavaScript files. The 3-4 second load times were inevitable. It was a tax imposed by physics.
 
@@ -3485,7 +3491,7 @@ Then, I moved my cursor to a new line. The tension was palpable. Arpit was leani
 
 I typed the command, slowly, deliberately:
 
-sudo shutdown -h now
+```sudo shutdown -h now```
 
 I hovered my finger over the Enter key for a beat, letting the gravity of the moment sink in. Then I pressed it.
 
