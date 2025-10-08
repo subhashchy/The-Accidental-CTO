@@ -20,7 +20,7 @@ export const BookSidebar = ({ chapters, activeChapter }: BookSidebarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-screen bg-sidebar border-r border-sidebar-border">
+    <div className="flex flex-col h-screen bg-background border-r border-sidebar-border">
       <div className="p-6 border-b border-sidebar-border">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">

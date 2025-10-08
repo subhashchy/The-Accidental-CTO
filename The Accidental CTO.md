@@ -188,8 +188,7 @@ Our monolith allowed two people, Suumit and me, to build and launch a functional
 
 The monolith was our superpower. It let us move at lightning speed. But like all superpowers, it had a hidden, dangerous side effect.
 
-####
-
+<br/>
 #### The Hidden Dangers of the Monolith
 
 As our cookbook grew, problems started to appear.
@@ -622,8 +621,7 @@ This is a more diverse galaxy with planets like **MongoDB** (Document), **Cassan
 - **Superpower: BASE and Horizontal Scalability.** Instead of strict ACID, many NoSQL databases offer BASE (Basically Available, Soft state, **Eventual consistency**). This means the system prioritizes being available over being instantly consistent-a concept we already explored with our read replicas. Their real power is in handling massive amounts of data and incredibly high write throughput.
 - **Best For:** Big Data applications, social media feeds, IoT sensor data, real-time analytics, and applications where the data structure is constantly evolving.
 
-####
-
+<br/>
 #### **A Quick Comparison**
 
 | Feature | SQL (PostgreSQL) | NoSQL (e.g., MongoDB) |
@@ -639,8 +637,7 @@ This is a more diverse galaxy with planets like **MongoDB** (Document), **Cassan
 | **Best For** | E-commerce, Finance, Systems of Record | Social Media, Big Data, IoT, Analytics |
 | --- | --- | --- |
 
-####
-
+<br/>
 #### **Why We Chose the Path of SQL**
 
 Looking at this table, our choice for Dukaan becomes crystal clear.
@@ -651,8 +648,7 @@ Looking at this table, our choice for Dukaan becomes crystal clear.
 
 We didn't have a "Big Data" problem. We had a classic e-commerce transaction problem. Choosing a trendy NoSQL database would have been like using a sledgehammer to crack a nut. PostgreSQL was the precise, reliable, and powerful tool that was perfectly suited for the job. It was a foundation we knew we could build a billion-dollar company on.
 
-###
-
+<br/>
 ## Chapter 3: Key Takeaways
 
 - **Separating your application and database servers is the first crucial step in scaling.** It allows each component to do what it does best without fighting for resources.
@@ -840,8 +836,7 @@ server   {
 
 That was it. The upstream block defined our fleet. The least_conn; line set our intelligent routing strategy. And the proxy_pass directive told Nginx to start directing traffic. After saving the file and restarting Nginx, our load balancer was live.
 
-####
-
+<br/>
 #### **The New Blueprint**
 
 Our architecture had evolved again. The traffic flow was now much more sophisticated and resilient.
@@ -1006,8 +1001,7 @@ With this router in place, our application was now intelligent. Every time a cus
 
 We deployed the changes. The difference was immediate and dramatic. Store pages loaded instantly. Sellers reported that saving changes was snappy again. The high CPU and I/O load on our Master database dropped to almost nothing. We had done it. We had successfully scaled our database.
 
-###
-
+<br/>
 ### **The Triangle You Can't Escape: CAP Theorem**
 
 When we first rolled out replication, the results felt magical. The master handled writes, the replicas handled reads, and suddenly the whole club was flowing smoothly. Sellers could update their catalog without being crushed under a wave of casual shoppers. Customers could browse without waiting in line. It looked like we had found the perfect system.
@@ -1034,8 +1028,7 @@ Say a seller updates the price of a dress in the VIP section from ₹1000 to ₹
 
 Both answers are "valid" depending on which room you're standing in. From the seller's perspective, though, it looks broken. They just changed the price - why does the storefront still show the old one?
 
-###
-
+<br/>
 ### **Why CAP Matters**
 
 CAP isn't a theory locked in a textbook; it's the invisible triangle you wrestle with whenever you add replicas, distribute data, or sync across regions. The moment we embraced replication, we entered a world where some reads could lag behind writes. That's not a bug. That's CAP, reminding us that distributed systems always make you pick your poison.
@@ -1174,8 +1167,7 @@ That evening, Suumit and I had a tense call.
 
 He was right. We had been flying without a parachute. It was time to grow up.
 
-####
-
+<br/>
 #### **The Solution: Building a Safety Net**
 
 The root of our problem was that we had only two places where our code existed: on a developer's laptop, and in front of live customers. There was no step in between. A professional software team needs a proper assembly line, with quality checks at each stage. This is the **Software Development Lifecycle**.
@@ -1326,8 +1318,7 @@ Deploying to production was now the final, deliberate, and calm step. It was no 
 
 This process transformed our team. It replaced chaos with order, anxiety with confidence. We were no longer just a group of coders; we were becoming a professional engineering organization.
 
-###
-
+<br/>
 ## Chapter 6: Key Takeaways
 
 - **A staging environment is a non-negotiable insurance policy against self-inflicted outages.** The cost of building and maintaining it is tiny compared to the cost of a production failure.
@@ -1344,8 +1335,7 @@ But a new challenge was emerging, one that was quieter but just as dangerous as 
 
 We were about to learn that the difference between a good product and a great one can be measured in milliseconds.
 
-###
-
+<br/>
 ### Part 1: The gavranmisal.com Complaint
 
 The call came from one of our star sellers. The owner of gavranmisal.com, a massively popular eatery from Pune, was one of our earliest adopters. They had a large, complex menu with dozens of categories and items, and they drove a huge amount of traffic to their Dukaan store. They were a perfect success story for us.
@@ -1555,8 +1545,7 @@ The complete flow was a thing of beauty:
 
 Now, when Priya refreshes her store page, our application code checks Redis. It finds nothing (a "cache miss"). It then proceeds to query the database, gets the fresh, correct price of ₹800, rebuilds the JSON, and saves this new, correct version back to the cache. The ghost of old data was vanquished.
 
-###
-
+<br/>
 ## Chapter 7: Key Takeaways
 
 - **Speed is a feature.** A slow website is a broken website. Caching is the most powerful tool for improving application performance.
@@ -2019,34 +2008,34 @@ The theory behind Docker was a revelation. It promised to solve both of our nagg
 
 We decided to containerize our most critical application first: the Python/Django monolith. A Dockerfile is just a plain text file named Dockerfile that lives alongside your code. It's a recipe for building your image. Ours looked something like this:
 
-```Dockerfile
-# Step 1: Start from an official, trusted base image.
-# We're using a specific version of Python on a lean version of Debian (a Linux OS).
-FROM python:3.9-slim
+```DockerFile
+  #Step 1: Start from an official, trusted base image.
+  #We're using a specific version of Python on a lean version of Debian (a Linux OS).
+  FROM python:3.9-slim
 
-# Set an environment variable so Python runs in an optimized mode.
-ENV PYTHONUNBUFFERED 1
+  #Set an environment variable so Python runs in an optimized mode.
+  ENV PYTHONUNBUFFERED 1
 
-# Set the working directory inside the container. All subsequent commands
-# will run from here.
-WORKDIR /app
+  #Set the working directory inside the container. All subsequent commands
+  #will run from here.
+  WORKDIR /app
 
-# Copy the file that lists all our Python dependencies into the container.
-COPY requirements.txt .
+  #Copy the file that lists all our Python dependencies into the container.
+  COPY requirements.txt .
 
-# Step 2: Install all the dependencies.
-# This step gets "cached" by Docker. If requirements.txt doesn't change,
+  #Step 2: Install all the dependencies.
+  #This step gets "cached" by Docker. If requirements.txt doesn't change,
 
-# Docker won't re-run this, making future builds much faster.
-RUN pip install --no-cache-dir -r requirements.txt
+  #Docker won't re-run this, making future builds much faster.
+  RUN pip install --no-cache-dir -r requirements.txt
 
-# Step 3: Copy our actual application code into the container.
-COPY . .
+  #Step 3: Copy our actual application code into the container.
+  COPY . .
 
-# Step 4: Define the command to run when the container starts.
-# This command starts our Gunicorn application server.
+  #Step 4: Define the command to run when the container starts.
+  #This command starts our Gunicorn application server.
 
-CMD \["gunicorn", "--bind", "0.0.0.0:8000", "dukaan.wsgi:application"\]
+  CMD \["gunicorn", "--bind", "0.0.0.0:8000", "dukaan.wsgi:application"\]
 ```
 
 This simple file was our blueprint. It was a perfect, repeatable, and version-controlled definition of our application's environment. There was no more ambiguity. The exact version of Python and the exact list of dependencies were now codified.
@@ -2220,8 +2209,7 @@ The result was a transformative upgrade to the Dukaan platform. The new search w
 - An **event-driven architecture** using a tool like Kafka is an incredibly powerful and elegant way to keep disparate systems (like a primary database, a cache, and a search index) perfectly in sync.
 - The "one-to-many" or "fan-out" pattern, where a single event from a producer triggers actions in multiple, independent consumers, is a cornerstone of building a scalable and decoupled microservices architecture.
 
-###
-
+<br/>
 ## Chapter 12: The Delivery Boy: CDNs for Static Assets
 
 As our platform grew, so did our ambition. We were no longer just an Indian company; sellers were organically discovering us from all over the world. We had stores popping up in Southeast Asia, Europe, and even South America. We were solving a global problem.
@@ -2321,8 +2309,7 @@ At the end of the month, Suumit and I looked at the AWS bill. The "Data Transfer
 
 The two-headed dragon was slain. With one relatively simple architectural change, we had drastically improved the user experience for our global customers and saved a huge amount of money in the process.
 
-###
-
+<br/>
 ## Chapter 12: Key Takeaways
 
 - **A CDN is a mandatory tool for any application with a geographically diverse user base.** It is one of the easiest and highest-impact changes you can make to improve global performance.
@@ -2376,8 +2363,7 @@ My week-long journey into the Kubernetes rabbit hole confirmed what I suspected.
 
 We didn't just need to _run_ containers. We needed a system to _manage_ their entire lifecycle automatically. We needed a container orchestrator.
 
-####
-
+<br/>
 #### **Technical Deep Dive: What is Container Orchestration?**
 
 The best analogy for container orchestration is that of a symphony orchestra.
@@ -2596,8 +2582,7 @@ We had rebuilt our company's engine from the ground up. We had gone from a singl
 
 This part of the book is about what happens next. It's about the moment an unexpected hurricane hit our fortress, and the surprising reason it remained standing. It's the story of how we discovered that the secret to surviving a tidal wave isn't a bigger wall, but a better coastline.
 
-##
-
+<br/>
 ## Chapter 14: The Shark Tank Effect: A Trial by Fire
 
 In the Indian startup ecosystem, there is no greater, more terrifying, and more coveted event than the "Shark Tank Effect." When a small business is featured on the massively popular TV show _Shark Tank India_, their website traffic doesn't just increase; it experiences a near-vertical surge of hundreds of thousands of curious viewers in a matter of minutes. It is the ultimate trial by fire for any e-commerce platform.
@@ -2731,8 +2716,7 @@ The results were night and day. As I showed in my tweet, Bummer's store in Canad
 
 This was our smoking gun. The problem wasn't the sellers' apps. The problem was Shopify's core infrastructure. It was fast in Canada and slow in India.
 
-####
-
+<br/>
 #### **Technical Deep Dive: TTFB is the Smoking Gun**
 
 The crucial metric that exposed the truth was the **TTFB**, or **Time to First Byte**.
@@ -2986,8 +2970,7 @@ This is the fundamental limitation of a traditional CDN. It can deliver the simp
 
 We realized that to be truly fast, we couldn't just deliver the masala packets from the edge. We had to build a **fully functional Maggi factory in every major city**. We needed to move the entire cooking process-the application servers and the database-to the edge. This is the core idea of a true edge computing platform.
 
-###
-
+<br/>
 ### **The Three Pillars of the Edge**
 
 Our Global Edge Network was built on three foundational pillars. These weren't just features; they were the strategic advantages that defined our platform and gave us our competitive edge.
@@ -3327,8 +3310,7 @@ Continuous Deployment takes the output of a successful CI process and automatica
 - **Analogy:** This is the **automated delivery system** at the end of the factory line. The moment a brand-new car rolls off the assembly line and passes its final 100-point inspection (the CI process), a fleet of autonomous, self-driving trucks is already waiting. They automatically load the car and deliver it directly to the correct showrooms around the world, without a human driver ever touching a steering wheel.
 - **The Goal:** The primary goal of CD is to make the release process a fast, reliable, and low-stress "non-event." By deploying small changes frequently, the risk of any single deployment causing a major outage is dramatically reduced.
 
-####
-
+<br/>
 #### **Our CI Pipeline: GitHub Actions**
 
 For the first part of our pipeline, Continuous Integration, we used a tool called **GitHub Actions**. Since all our code was already hosted on GitHub, this was a natural choice. It allowed us to define our automation workflows in a simple YAML file right alongside our code.
@@ -3655,8 +3637,7 @@ We laid our cards on the table. The synergy was staring us right in the face.
 
 It was a promising match. We decided to stop being solo operators and join forces. We formed a digital agency.
 
-####
-
+<br/>
 #### **From Agency to Powerhouse**
 
 The partnership exploded out of the gate. The very first client Suumit brought to the table was a massive deal, landing us over **two crores** in revenue. We were profitable from day one.
