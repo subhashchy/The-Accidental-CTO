@@ -2502,7 +2502,7 @@ This YAML file is just a text file. It doesn't do anything on its own. We needed
 
 We ran a single command:
 
-```kubectl apply -f storefront-deployment.yaml```
+> kubectl apply -f storefront-deployment.yaml
 
 And then, the magic began.
 
@@ -3473,7 +3473,7 @@ Then, I moved my cursor to a new line. The tension was palpable. Arpit was leani
 
 I typed the command, slowly, deliberately:
 
-```sudo shutdown -h now```
+> sudo shutdown -h now
 
 I hovered my finger over the Enter key for a beat, letting the gravity of the moment sink in. Then I pressed it.
 
