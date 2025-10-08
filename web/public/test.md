@@ -802,20 +802,20 @@ I opened the Nginx configuration file (/etc/nginx/nginx.conf) and added two smal
 **Our Nginx Load Balancer Configuration**
 
 ```nginx
-# Define the group of servers that will handle the application work.
-# We'll call this group "app_servers".
+#Define the group of servers that will handle the application work.
+#We'll call this group "app_servers".
 
 upstream app_servers {
-  # This is the magic rule. It tells Nginx to use the "Least Connections"
-  # algorithm we talked about. Send traffic to the server with the fewest connections.
+  #This is the magic rule. It tells Nginx to use the "Least Connections"
+  #algorithm we talked about. Send traffic to the server with the fewest connections.
   least_conn;
 
-  # List the IP addresses of all the servers in our fleet.
-  # These are the private network IPs for speed and security.
+  #List the IP addresses of all the servers in our fleet.
+  #These are the private network IPs for speed and security.
   server 10.132.2.31; # Our first application server
   server 10.132.4.55; # Our second application server
 
-  # To scale, we just add more lines here!
+  #To scale, we just add more lines here!
 }
 
 server   {
@@ -823,15 +823,16 @@ server   {
   server_name dukaan.app;
 
   location  {
-    # This is the line that does all the work.
-    # It tells Nginx to pass every incoming request to the
+    #This is the line that does all the work.
+    #It tells Nginx to pass every incoming request to the
 
-    # "app_servers" group we defined above.
+    #"app_servers" group we defined above.
     proxy_pass http://app_servers;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
   }
 }
+
 ```
 
 That was it. The upstream block defined our fleet. The least_conn; line set our intelligent routing strategy. And the proxy_pass directive told Nginx to start directing traffic. After saving the file and restarting Nginx, our load balancer was live.
@@ -1699,14 +1700,14 @@ We built our new, standalone storefront-service. It was a lean, fast application
 
 ```Nginx
 
-# A simplified version of our "Strangler" config
-# Define our new storefront microservice
+#A simplified version of our "Strangler" config
+#Define our new storefront microservice
 
 upstream storefront_service {
   server 10.132.8.12; # IP of the new service
 }
 
-# Define our old monolith
+#Define our old monolith
 upstream monolith_service {
   server 10.132.2.31;
   server 10.132.4.55;
@@ -1717,22 +1718,23 @@ server {
   server_name dukaan.app;
 
   location {
-    # This is the strangler logic. By default, send all traffic
-    # to the old monolith.
+    #This is the strangler logic. By default, send all traffic
+    #to the old monolith.
     set $target_service $monolith_service;
 
-    # However, if the request is for a store page (e.g., dukaan.app/store/gavranmisal)
-    # AND we have set a special cookie for testing...
+    #However, if the request is for a store page (e.g., dukaan.app/store/gavranmisal)
+    #AND we have set a special cookie for testing...
 
     if ($uri ~* "^/store/" and $cookie_use_new_storefront = "true") {
-      # ...then send this specific request to our new microservice instead!
+      #...then send this specific request to our new microservice instead!
       set $target_service $storefront_service;
     }
 
     proxy_pass http://$target_service;
-    # ... other proxy settings
+    #... other proxy settings
   }
 }
+
 ```
 
 This configuration gave us precise control. We could now give the use_new_storefront=true cookie to our internal team. We could browse the site and test the new service on live production traffic without any real users seeing it. Once we were confident, we could modify the logic to route 10% of anonymous traffic, then 50%, and finally 100% to the new service.
@@ -2454,44 +2456,46 @@ It was time to write the sheet music for our storefront-service. We created a fi
 
 Let's break down our first Deployment blueprint, line by line.
 
-```YAML
-# 1. The API version and Kind tell Kubernetes what type of object this is.
-# We are creating a "Deployment".
+```
+YAML
+
+#1. The API version and Kind tell Kubernetes what type of object this is.
+#We are creating a "Deployment".
 apiVersion: apps/v1
 kind: Deployment
 
-# 2. Metadata is data about the object itself, like its name.
+#2. Metadata is data about the object itself, like its name.
 metadata:
   name: storefront-deployment
 
-# 3. The Spec (Specification) is the most important part.
-# This is our desired state—the blueprint for the chair.
+#3. The Spec (Specification) is the most important part.
+#This is our desired state—the blueprint for the chair.
 spec:
-  # 4. We want 50 identical copies of our application running.
+  #4. We want 50 identical copies of our application running.
   replicas: 50
 
-  # 5. This tells the Deployment how to find the Pods it's supposed to manage.
-  # It looks for any Pods that have the label "app: storefront".
+  #5. This tells the Deployment how to find the Pods it's supposed to manage.
+  #It looks for any Pods that have the label "app: storefront".
   selector:
     matchLabels:
       app: storefront
 
-  # 6. This is the template, or blueprint, for the Pods themselves.
-  # The Deployment will create 50 Pods based on this template.
+  #6. This is the template, or blueprint, for the Pods themselves.
+  #The Deployment will create 50 Pods based on this template.
   template:
     metadata:
-      # 7. We give the Pods a label so the Deployment can find them.
+      #7. We give the Pods a label so the Deployment can find them.
       labels:
         app: storefront
 
     spec:
-      # 8. This section defines the containers to run inside the Pod.
+      #8. This section defines the containers to run inside the Pod.
       containers:
         - name: storefront-container
-          # 9. This is the most critical line: the specific Docker image to run.
+          #9. This is the most critical line: the specific Docker image to run.
           image: dukaan/storefront:v2.1
 
-          # 10. Tell Kubernetes which port our application is listening on inside the container.
+          #10. Tell Kubernetes which port our application is listening on inside the container.
           ports:
             - containerPort: 8000
 ```

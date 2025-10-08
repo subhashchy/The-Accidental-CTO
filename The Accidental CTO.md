@@ -506,7 +506,7 @@ Think of it like this: pg_dump is a magical scribe who walks into your library, 
 
 While still on our original, all-in-one server, I ran the command:
 
-```pg_dump -U postgres dukaan_prod > dukaan_backup.sql```
+> pg_dump -U postgres dukaan_prod > dukaan_backup.sql
 
 I watched as the server's CPU spiked. It was working hard to create this snapshot. After a few minutes, it was done. We now had a file, dukaan_backup.sql, that contained the entire soul of our company.
 
@@ -514,13 +514,13 @@ I watched as the server's CPU spiked. It was working hard to create this snapsho
 
 Now we had the blueprint, but it was on the wrong server. We needed to securely transfer this backup file from our old server to our new, empty database server. For this, we used another command-line tool called scp (Secure Copy).
 
-```scp dukaan_backup.sql root@142.93.218.155:/root/```
+> scp dukaan_backup.sql root@142.93.218.155:/root/
 
 This command securely copied our backup file over the network. Now, the new library had the "Instructions" book.
 
 With the backup file on the new server, it was time to rebuild. I SSH'd into the new DB server, created an empty database shell called dukaan_prod, and then ran the command to restore from the backup:
 
-```psql -U postgres -d dukaan_prod < dukaan_backup.sql```
+> psql -U postgres -d dukaan_prod < dukaan_backup.sql
 
 This command does the reverse of pg_dump. It reads the giant instruction file and executes every command, line by line. It creates the tables, inserts the data, and rebuilds the relationships. I watched the screen, praying no errors would pop up. A few minutes later, it finished.
 
@@ -576,7 +576,7 @@ For a single request, this latency might be tiny-maybe just 1 or 2 milliseconds 
 
 A single page load could easily result in 10, 20, or even 50 separate trips to the database. Before the divorce, those 50 trips were practically free. Now, they had a real-world cost.
 
-```50 trips * 2ms latency per trip = 100ms```
+> 50 trips * 2ms latency per trip = 100ms
 
 Suddenly, we had added a tenth of a second of loading time from network latency alone, even if both servers were performing their individual tasks instantly. This was our new bottleneck. We couldn't just throw more hardware at it. We had to get smarter. We had to optimize our code to be less "chatty" with the database.
 
@@ -802,20 +802,20 @@ I opened the Nginx configuration file (/etc/nginx/nginx.conf) and added two smal
 **Our Nginx Load Balancer Configuration**
 
 ```nginx
-# Define the group of servers that will handle the application work.
-# We'll call this group "app_servers".
+#Define the group of servers that will handle the application work.
+#We'll call this group "app_servers".
 
 upstream app_servers {
-  # This is the magic rule. It tells Nginx to use the "Least Connections"
-  # algorithm we talked about. Send traffic to the server with the fewest connections.
+  #This is the magic rule. It tells Nginx to use the "Least Connections"
+  #algorithm we talked about. Send traffic to the server with the fewest connections.
   least_conn;
 
-  # List the IP addresses of all the servers in our fleet.
-  # These are the private network IPs for speed and security.
+  #List the IP addresses of all the servers in our fleet.
+  #These are the private network IPs for speed and security.
   server 10.132.2.31; # Our first application server
   server 10.132.4.55; # Our second application server
 
-  # To scale, we just add more lines here!
+  #To scale, we just add more lines here!
 }
 
 server   {
@@ -823,15 +823,16 @@ server   {
   server_name dukaan.app;
 
   location  {
-    # This is the line that does all the work.
-    # It tells Nginx to pass every incoming request to the
+    #This is the line that does all the work.
+    #It tells Nginx to pass every incoming request to the
 
-    # "app_servers" group we defined above.
+    #"app_servers" group we defined above.
     proxy_pass http://app_servers;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
   }
 }
+
 ```
 
 That was it. The upstream block defined our fleet. The least_conn; line set our intelligent routing strategy. And the proxy_pass directive told Nginx to start directing traffic. After saving the file and restarting Nginx, our load balancer was live.
@@ -985,15 +986,15 @@ This was a major change to our codebase.
 - **Creating a Database Router:** Next, we implemented a custom "database router." This is a special piece of code in Django that intercepts every database query before it happens and decides which database it should be sent to. The logic was simple, but critical:
 
 ```Python
-# A simplified version of our router logic
+#A simplified version of our router logic
 class PrimaryReplicaRouter:
 
   def db_for_read(self, model, \*\*hints):
-  # All read operations go to the replica.
+  #All read operations go to the replica.
     return 'read_replica'
 
   def db_for_write(self, model, \*\*hints):
-\# All write operations go to the master.
+  #All write operations go to the master.
     return 'default'
 ```
 
@@ -1699,14 +1700,14 @@ We built our new, standalone storefront-service. It was a lean, fast application
 
 ```Nginx
 
-# A simplified version of our "Strangler" config
-# Define our new storefront microservice
+#A simplified version of our "Strangler" config
+#Define our new storefront microservice
 
 upstream storefront_service {
   server 10.132.8.12; # IP of the new service
 }
 
-# Define our old monolith
+#Define our old monolith
 upstream monolith_service {
   server 10.132.2.31;
   server 10.132.4.55;
@@ -1717,22 +1718,23 @@ server {
   server_name dukaan.app;
 
   location {
-    # This is the strangler logic. By default, send all traffic
-    # to the old monolith.
+    #This is the strangler logic. By default, send all traffic
+    #to the old monolith.
     set $target_service $monolith_service;
 
-    # However, if the request is for a store page (e.g., dukaan.app/store/gavranmisal)
-    # AND we have set a special cookie for testing...
+    #However, if the request is for a store page (e.g., dukaan.app/store/gavranmisal)
+    #AND we have set a special cookie for testing...
 
     if ($uri ~* "^/store/" and $cookie_use_new_storefront = "true") {
-      # ...then send this specific request to our new microservice instead!
+      #...then send this specific request to our new microservice instead!
       set $target_service $storefront_service;
     }
 
     proxy_pass http://$target_service;
-    # ... other proxy settings
+    #... other proxy settings
   }
 }
+
 ```
 
 This configuration gave us precise control. We could now give the use_new_storefront=true cookie to our internal team. We could browse the site and test the new service on live production traffic without any real users seeing it. Once we were confident, we could modify the logic to route 10% of anonymous traffic, then 50%, and finally 100% to the new service.
@@ -2454,44 +2456,46 @@ It was time to write the sheet music for our storefront-service. We created a fi
 
 Let's break down our first Deployment blueprint, line by line.
 
-```YAML
-# 1. The API version and Kind tell Kubernetes what type of object this is.
-# We are creating a "Deployment".
+```
+YAML
+
+#1. The API version and Kind tell Kubernetes what type of object this is.
+#We are creating a "Deployment".
 apiVersion: apps/v1
 kind: Deployment
 
-# 2. Metadata is data about the object itself, like its name.
+#2. Metadata is data about the object itself, like its name.
 metadata:
   name: storefront-deployment
 
-# 3. The Spec (Specification) is the most important part.
-# This is our desired state—the blueprint for the chair.
+#3. The Spec (Specification) is the most important part.
+#This is our desired state—the blueprint for the chair.
 spec:
-  # 4. We want 50 identical copies of our application running.
+  #4. We want 50 identical copies of our application running.
   replicas: 50
 
-  # 5. This tells the Deployment how to find the Pods it's supposed to manage.
-  # It looks for any Pods that have the label "app: storefront".
+  #5. This tells the Deployment how to find the Pods it's supposed to manage.
+  #It looks for any Pods that have the label "app: storefront".
   selector:
     matchLabels:
       app: storefront
 
-  # 6. This is the template, or blueprint, for the Pods themselves.
-  # The Deployment will create 50 Pods based on this template.
+  #6. This is the template, or blueprint, for the Pods themselves.
+  #The Deployment will create 50 Pods based on this template.
   template:
     metadata:
-      # 7. We give the Pods a label so the Deployment can find them.
+      #7. We give the Pods a label so the Deployment can find them.
       labels:
         app: storefront
 
     spec:
-      # 8. This section defines the containers to run inside the Pod.
+      #8. This section defines the containers to run inside the Pod.
       containers:
         - name: storefront-container
-          # 9. This is the most critical line: the specific Docker image to run.
+          #9. This is the most critical line: the specific Docker image to run.
           image: dukaan/storefront:v2.1
 
-          # 10. Tell Kubernetes which port our application is listening on inside the container.
+          #10. Tell Kubernetes which port our application is listening on inside the container.
           ports:
             - containerPort: 8000
 ```
@@ -2681,7 +2685,7 @@ But loading a secure webpage isn't one conversation; it's a series of them that 
 
 Just to get the first byte of the HTML page, a user in India had to wait for at least 5 round trips.
 
-```5 round trips * 130ms/trip = 650ms```
+> 5 round trips * 130ms/trip = 650ms
 
 This meant a Shopify store hosted in the US was guaranteed to have _at least_ a 650ms delay for an Indian user before anything even started to appear on the screen. And that's before accounting for network congestion and the time it takes to download all the images, CSS, and JavaScript files. The 3-4 second load times were inevitable. It was a tax imposed by physics.
 
@@ -3473,7 +3477,7 @@ Then, I moved my cursor to a new line. The tension was palpable. Arpit was leani
 
 I typed the command, slowly, deliberately:
 
-> sudo shutdown -h now
+> sudo shutdown -h now 
 
 I hovered my finger over the Enter key for a beat, letting the gravity of the moment sink in. Then I pressed it.
 
