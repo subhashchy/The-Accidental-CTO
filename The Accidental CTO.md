@@ -1068,7 +1068,7 @@ At Dukaan, we had essentially built an eventually consistent system when we adop
 
 But as with every solution, this new architecture introduced a new, subtle, and potentially dangerous side effect.
 
-####
+<br/>
 
 #### **The New Problem: Replication Lag**
 
@@ -1128,8 +1128,6 @@ This is Priya's VIP Pass.
 - A minute later, the VIP flag in her session expires. Her next read request will go to the Replica as normal, by which time the data has long since been replicated.
 
 This approach gave us the best of both worlds: massive scalability for the general public, and the feeling of strong consistency for the user who is actually making changes.
-
-###
 
 ## Chapter 5: Key Takeaways
 
