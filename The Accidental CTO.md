@@ -805,17 +805,9 @@ I opened the Nginx configuration file (/etc/nginx/nginx.conf) and added two smal
 
 **Our Nginx Load Balancer Configuration**
 
-<<<<<<< HEAD
-```Nginx
-
-\# Define the group of servers that will handle the application work.
-
-\# We'll call this group "app_servers".
-=======
 ```nginx
 # Define the group of servers that will handle the application work.
 # We'll call this group "app_servers".
->>>>>>> upstream/main
 
 upstream app_servers {
   # This is the magic rule. It tells Nginx to use the "Least Connections"
@@ -1452,11 +1444,7 @@ Our application would now follow a "read-through cache" logic. The code to fetch
 
 **Simplified Python Code Snippet**
 
-<<<<<<< HEAD
-```python
-=======
 ```Python
->>>>>>> upstream/main
 
 import redis
 import json
@@ -1487,8 +1475,6 @@ def get_store_catalog(store_slug):
     redis_client.set(cache_key, json_data, ex=3600)
     # 7. Return the data to the user.
     return store_data_from_db
-```
-
 ```
 
 This logic was a game-changer. The very first person to visit the gavranmisal.com store after we deployed this would trigger a "CACHE MISS". Their request would be slow as our server did the hard work of querying the database and building the JSON object. But in the process, it would save that final JSON object to Redis.
@@ -2485,16 +2471,8 @@ It was time to write the sheet music for our storefront-service. We created a fi
 Let's break down our first Deployment blueprint, line by line.
 
 ```YAML
-<<<<<<< HEAD
-
-\# 1. The API version and Kind tell Kubernetes what type of object this is.
-
-\# We are creating a "Deployment".
-
-=======
 # 1. The API version and Kind tell Kubernetes what type of object this is.
 # We are creating a "Deployment".
->>>>>>> upstream/main
 apiVersion: apps/v1
 kind: Deployment
 
@@ -2532,8 +2510,6 @@ spec:
           # 10. Tell Kubernetes which port our application is listening on inside the container.
           ports:
             - containerPort: 8000
-```
-
 ```
 
 #### **The Magic of kubectl apply**
