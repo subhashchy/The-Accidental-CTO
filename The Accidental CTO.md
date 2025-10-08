@@ -1362,7 +1362,7 @@ Even though our read replica was powerful and each of those 114 queries was indi
 
 > 114 queries * 10ms per query = 1140ms
 
-That's over a full second of just database time, a concept called "death by a thousand cuts." Add in the network latency for each of those calls and the time for our server to render the page, and the 5-6 second load time started to make perfect sense.
+> That's over a full second of just database time, a concept called "death by a thousand cuts." Add in the network latency for each of those calls and the time for our server to render the page, and the 5-6 second load time started to make perfect sense.
 
 The core insight was this: the gavranmisal.com menu doesn't change every second. In fact, it might only be updated once or twice a day. Yet, our system was dutifully rebuilding the entire menu from scratch, piece by piece from the database, for every single one of the thousands of customers who visited the page every hour.
 
