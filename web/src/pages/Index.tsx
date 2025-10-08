@@ -6,7 +6,7 @@ import { Loader2, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // This is the URL of the book that will be displayed in the sidebar and content area
-const BOOK_URL = "https://raw.githubusercontent.com/hitesh-c/The-Accidental-CTO/refs/heads/main/The%20Accidental%20CTO.md"
+const BOOK_URL = "/test.md"
 
 const Index = () => {
   const { content, chapters, loading, error } = useMarkdownContent(BOOK_URL);
