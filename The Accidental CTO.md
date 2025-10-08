@@ -507,7 +507,7 @@ Think of it like this: pg_dump is a magical scribe who walks into your library, 
 
 While still on our original, all-in-one server, I ran the command:
 
-pg_dump -U postgres dukaan_prod > dukaan_backup.sql
+```pg_dump -U postgres dukaan_prod > dukaan_backup.sql```
 
 I watched as the server's CPU spiked. It was working hard to create this snapshot. After a few minutes, it was done. We now had a file, dukaan_backup.sql, that contained the entire soul of our company.
 
@@ -515,13 +515,13 @@ I watched as the server's CPU spiked. It was working hard to create this snapsho
 
 Now we had the blueprint, but it was on the wrong server. We needed to securely transfer this backup file from our old server to our new, empty database server. For this, we used another command-line tool called scp (Secure Copy).
 
-scp dukaan_backup.sql root@142.93.218.155:/root/
+```scp dukaan_backup.sql root@142.93.218.155:/root/```
 
 This command securely copied our backup file over the network. Now, the new library had the "Instructions" book.
 
 With the backup file on the new server, it was time to rebuild. I SSH'd into the new DB server, created an empty database shell called dukaan_prod, and then ran the command to restore from the backup:
 
-psql -U postgres -d dukaan_prod < dukaan_backup.sql
+```psql -U postgres -d dukaan_prod < dukaan_backup.sql```
 
 This command does the reverse of pg_dump. It reads the giant instruction file and executes every command, line by line. It creates the tables, inserts the data, and rebuilds the relationships. I watched the screen, praying no errors would pop up. A few minutes later, it finished.
 
@@ -577,7 +577,7 @@ For a single request, this latency might be tiny-maybe just 1 or 2 milliseconds 
 
 A single page load could easily result in 10, 20, or even 50 separate trips to the database. Before the divorce, those 50 trips were practically free. Now, they had a real-world cost.
 
-50 trips \* 2ms latency per trip = 100ms
+```50 trips * 2ms latency per trip = 100ms```
 
 Suddenly, we had added a tenth of a second of loading time from network latency alone, even if both servers were performing their individual tasks instantly. This was our new bottleneck. We couldn't just throw more hardware at it. We had to get smarter. We had to optimize our code to be less "chatty" with the database.
 
@@ -805,54 +805,44 @@ I opened the Nginx configuration file (/etc/nginx/nginx.conf) and added two smal
 
 **Our Nginx Load Balancer Configuration**
 
+<<<<<<< HEAD
 ```Nginx
 
 \# Define the group of servers that will handle the application work.
 
 \# We'll call this group "app_servers".
+=======
+```nginx
+# Define the group of servers that will handle the application work.
+# We'll call this group "app_servers".
+>>>>>>> upstream/main
 
 upstream app_servers {
+  # This is the magic rule. It tells Nginx to use the "Least Connections"
+  # algorithm we talked about. Send traffic to the server with the fewest connections.
+  least_conn;
 
-\# This is the magic rule. It tells Nginx to use the "Least Connections"
+  # List the IP addresses of all the servers in our fleet.
+  # These are the private network IPs for speed and security.
+  server 10.132.2.31; # Our first application server
+  server 10.132.4.55; # Our second application server
 
-\# algorithm we talked about. Send traffic to the server with the fewest connections.
-
-least_conn;
-
-\# List the IP addresses of all the servers in our fleet.
-
-\# These are the private network IPs for speed and security.
-
-server 10.132.2.31; # Our first application server
-
-server 10.132.4.55; # Our second application server
-
-\# To scale, we just add more lines here!
-
+  # To scale, we just add more lines here!
 }
 
-server {
+server   {
+  listen 80;
+  server_name dukaan.app;
 
-listen 80;
+  location  {
+    # This is the line that does all the work.
+    # It tells Nginx to pass every incoming request to the
 
-server_name dukaan.app;
-
-location / {
-
-\# This is the line that does all the work.
-
-\# It tells Nginx to pass every incoming request to the
-
-\# "app_servers" group we defined above.
-
-proxy_pass http://app_servers;
-
-proxy_set_header Host \$host;
-
-proxy_set_header X-Real-IP \$remote_addr;
-
-}
-
+    # "app_servers" group we defined above.
+    proxy_pass http://app_servers;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+  }
 }
 ```
 
@@ -1007,23 +997,18 @@ This was a major change to our codebase.
 - **Multiple Database Configurations:** First, in our Django settings, we configured two database connections instead of one: a default connection pointing to the Master database's IP, and a read_replica connection pointing to the new Replica's IP.
 - **Creating a Database Router:** Next, we implemented a custom "database router." This is a special piece of code in Django that intercepts every database query before it happens and decides which database it should be sent to. The logic was simple, but critical:
 
-Python
-
-\# A simplified version of our router logic
-
+```Python
+# A simplified version of our router logic
 class PrimaryReplicaRouter:
 
-def db_for_read(self, model, \*\*hints):
+  def db_for_read(self, model, \*\*hints):
+  # All read operations go to the replica.
+    return 'read_replica'
 
-\# All read operations go to the replica.
-
-return 'read_replica'
-
-def db_for_write(self, model, \*\*hints):
-
+  def db_for_write(self, model, \*\*hints):
 \# All write operations go to the master.
-
-return 'default'
+    return 'default'
+```
 
 With this router in place, our application was now intelligent. Every time a customer loaded a store page (triggering dozens of SELECT queries), the router would send all that traffic to the powerful Read Replica. But when a seller hit "Save" on a new product (triggering an INSERT or UPDATE query), the router would send that single, critical request to the protected, less-busy Master database.
 
@@ -1395,7 +1380,7 @@ We were fetching the store's details, then its theme settings, then all its cate
 
 Even though our read replica was powerful and each of those 114 queries was individually very fast (maybe 5-10 milliseconds each), the cumulative effect was devastating.
 
-114 queries \* 10ms per query = 1140ms
+```114 queries * 10ms per query = 1140ms```
 
 That's over a full second of just database time, a concept called "death by a thousand cuts." Add in the network latency for each of those calls and the time for our server to render the page, and the 5-6 second load time started to make perfect sense.
 
@@ -1467,61 +1452,42 @@ Our application would now follow a "read-through cache" logic. The code to fetch
 
 **Simplified Python Code Snippet**
 
+<<<<<<< HEAD
 ```python
+=======
+```Python
+>>>>>>> upstream/main
 
 import redis
-
 import json
 
-\# Connect to our Redis server
-
+# Connect to our Redis server
 redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
 def get_store_catalog(store_slug):
-
-\# 1. Define the key we will use for this store.
-
-cache_key = f"store_catalog:{store_slug}"
-
-\# 2. First, try to get the data from the cache (the whiteboard).
-
-cached_data = redis_client.get(cache_key)
-
-if cached_data:
-
-\# 3a. CACHE HIT! The data was on the whiteboard.
-
-print("CACHE HIT!")
-
-\# Convert the JSON string back into a Python dictionary and return it.
-
-return json.loads(cached_data)
-
-else:
-
-\# 3b. CACHE MISS! The data was not on the whiteboard.
-
-print("CACHE MISS!")
-
-\# 4. Do the expensive operation: query the database (the library).
-
-\# (This is a placeholder for our 114 database queries)
-
-store_data_from_db = build_catalog_from_database(store_slug)
-
-\# 5. Convert the freshly fetched data into a JSON string.
-
-json_data = json.dumps(store_data_from_db)
-
-\# 6. Save it to the cache for next time!
-
-\# Set an expiration time (ex) of 1 hour (3600 seconds).
-
-redis_client.set(cache_key, json_data, ex=3600)
-
-\# 7. Return the data to the user.
-
-return store_data_from_db
+  # 1. Define the key we will use for this store.
+  cache_key = f"store_catalog:{store_slug}"
+  # 2. First, try to get the data from the cache (the whiteboard).
+  cached_data = redis_client.get(cache_key)
+  if cached_data:
+    # 3a. CACHE HIT! The data was on the whiteboard.
+    print("CACHE HIT!")
+    # Convert the JSON string back into a Python dictionary and return it.
+    return json.loads(cached_data)
+  else:
+    # 3b. CACHE MISS! The data was not on the whiteboard.
+    print("CACHE MISS!")
+    # 4. Do the expensive operation: query the database (the library).
+    # (This is a placeholder for our 114 database queries)
+    store_data_from_db = build_catalog_from_database(store_slug)
+    # 5. Convert the freshly fetched data into a JSON string.
+    json_data = json.dumps(store_data_from_db)
+    # 6. Save it to the cache for next time!
+    # Set an expiration time (ex) of 1 hour (3600 seconds).
+    redis_client.set(cache_key, json_data, ex=3600)
+    # 7. Return the data to the user.
+    return store_data_from_db
+```
 
 ```
 
@@ -1758,61 +1724,43 @@ Once again, our trusty tool Nginx was perfect for the job. We were already using
 
 We built our new, standalone storefront-service. It was a lean, fast application whose only job was to render store pages. Then, we updated the Nginx configuration on our load balancer with some new logic:
 
-Nginx
+```Nginx
 
-\# A simplified version of our "Strangler" config
-
-\# Define our new storefront microservice
+# A simplified version of our "Strangler" config
+# Define our new storefront microservice
 
 upstream storefront_service {
-
-server 10.132.8.12; # IP of the new service
-
+  server 10.132.8.12; # IP of the new service
 }
 
-\# Define our old monolith
-
+# Define our old monolith
 upstream monolith_service {
-
-server 10.132.2.31;
-
-server 10.132.4.55;
-
+  server 10.132.2.31;
+  server 10.132.4.55;
 }
 
 server {
+  listen 80;
+  server_name dukaan.app;
 
-listen 80;
+  location {
+    # This is the strangler logic. By default, send all traffic
+    # to the old monolith.
+    set $target_service $monolith_service;
 
-server_name dukaan.app;
+    # However, if the request is for a store page (e.g., dukaan.app/store/gavranmisal)
+    # AND we have set a special cookie for testing...
 
-location / {
+    if ($uri ~* "^/store/" and $cookie_use_new_storefront = "true") {
+      # ...then send this specific request to our new microservice instead!
+      set $target_service $storefront_service;
+    }
 
-\# This is the strangler logic. By default, send all traffic
-
-\# to the old monolith.
-
-set \$target_service \$monolith_service;
-
-\# However, if the request is for a store page (e.g., dukaan.app/store/gavranmisal)
-
-\# AND we have set a special cookie for testing...
-
-if (\$uri ~\* "^/store/" and \$cookie_use_new_storefront = "true") {
-
-\# ...then send this specific request to our new microservice instead!
-
-set \$target_service \$storefront_service;
-
+    proxy_pass http://$target_service;
+    # ... other proxy settings
+  }
 }
-
-proxy_pass http://\$target_service;
-
-\# ... other proxy settings
-
-}
-
-}
+```
 
 This configuration gave us precise control. We could now give the use_new_storefront=true cookie to our internal team. We could browse the site and test the new service on live production traffic without any real users seeing it. Once we were confident, we could modify the logic to route 10% of anonymous traffic, then 50%, and finally 100% to the new service.
 
@@ -2087,45 +2035,35 @@ The theory behind Docker was a revelation. It promised to solve both of our nagg
 
 We decided to containerize our most critical application first: the Python/Django monolith. A Dockerfile is just a plain text file named Dockerfile that lives alongside your code. It's a recipe for building your image. Ours looked something like this:
 
-Dockerfile
-
-\# Step 1: Start from an official, trusted base image.
-
-\# We're using a specific version of Python on a lean version of Debian (a Linux OS).
-
+```Dockerfile
+# Step 1: Start from an official, trusted base image.
+# We're using a specific version of Python on a lean version of Debian (a Linux OS).
 FROM python:3.9-slim
 
-\# Set an environment variable so Python runs in an optimized mode.
-
+# Set an environment variable so Python runs in an optimized mode.
 ENV PYTHONUNBUFFERED 1
 
-\# Set the working directory inside the container. All subsequent commands
-
-\# will run from here.
-
+# Set the working directory inside the container. All subsequent commands
+# will run from here.
 WORKDIR /app
 
-\# Copy the file that lists all our Python dependencies into the container.
-
+# Copy the file that lists all our Python dependencies into the container.
 COPY requirements.txt .
 
-\# Step 2: Install all the dependencies.
+# Step 2: Install all the dependencies.
+# This step gets "cached" by Docker. If requirements.txt doesn't change,
 
-\# This step gets "cached" by Docker. If requirements.txt doesn't change,
-
-\# Docker won't re-run this, making future builds much faster.
-
+# Docker won't re-run this, making future builds much faster.
 RUN pip install --no-cache-dir -r requirements.txt
 
-\# Step 3: Copy our actual application code into the container.
-
+# Step 3: Copy our actual application code into the container.
 COPY . .
 
-\# Step 4: Define the command to run when the container starts.
-
-\# This command starts our Gunicorn application server.
+# Step 4: Define the command to run when the container starts.
+# This command starts our Gunicorn application server.
 
 CMD \["gunicorn", "--bind", "0.0.0.0:8000", "dukaan.wsgi:application"\]
+```
 
 This simple file was our blueprint. It was a perfect, repeatable, and version-controlled definition of our application's environment. There was no more ambiguity. The exact version of Python and the exact list of dependencies were now codified.
 
@@ -2195,7 +2133,9 @@ Suumit saw the business impact immediately. We dove into our analytics. The data
 
 The root cause was the simple, naive way we had implemented search in our hurry to build the MVP. When a user typed a query, we were running a basic SQL command against our PostgreSQL database that looked something like this:
 
-SELECT \* FROM products WHERE name ILIKE '%running shoes%';
+```sql
+SELECT * FROM products WHERE name ILIKE '%running shoes%';
+```
 
 The ILIKE command in Postgres performs a case-insensitive, substring search. It asks the database, "Are the letters 'r-u-n-n-i-n-g- -s-h-o-e-s' present, in that exact order, somewhere inside the product name?"
 
@@ -2234,7 +2174,11 @@ Here's how the genius assistant works its magic:
 
 Before you ever search, Elasticsearch reads all your product data and builds a map that looks like a textbook index. It maps every single word to a list of all the products that contain that word.
 
-"nike" -> \[Product 1, Product 5, Product 88\] "running" -> \[Product 1, Product 7, Product 23, Product 88\] "shoes" -> \[Product 1, Product 23, Product 55, Product 88\]
+```
+"nike" -> [Product 1, Product 5, Product 88]
+"running" -> [Product 1, Product 7, Product 23, Product 88]
+"shoes" -> [Product 1, Product 23, Product 55, Product 88]
+```
 
 When you search for "nike running shoes," Elasticsearch doesn't read the products. It just looks at its index, finds the lists for "nike," "running," and "shoes," and instantly finds the products that are common to all three lists (in this case, Product 1 and Product 88). This is why it can find matches in millions of documents in milliseconds.
 
@@ -2541,72 +2485,54 @@ It was time to write the sheet music for our storefront-service. We created a fi
 Let's break down our first Deployment blueprint, line by line.
 
 ```YAML
+<<<<<<< HEAD
 
 \# 1. The API version and Kind tell Kubernetes what type of object this is.
 
 \# We are creating a "Deployment".
 
+=======
+# 1. The API version and Kind tell Kubernetes what type of object this is.
+# We are creating a "Deployment".
+>>>>>>> upstream/main
 apiVersion: apps/v1
-
 kind: Deployment
 
-\# 2. Metadata is data about the object itself, like its name.
-
+# 2. Metadata is data about the object itself, like its name.
 metadata:
+  name: storefront-deployment
 
-name: storefront-deployment
-
-\# 3. The Spec (Specification) is the most important part.
-
-\# This is our desired state-the blueprint for the chair.
-
+# 3. The Spec (Specification) is the most important part.
+# This is our desired state—the blueprint for the chair.
 spec:
+  # 4. We want 50 identical copies of our application running.
+  replicas: 50
 
-\# 4. We want 50 identical copies of our application running.
+  # 5. This tells the Deployment how to find the Pods it's supposed to manage.
+  # It looks for any Pods that have the label "app: storefront".
+  selector:
+    matchLabels:
+      app: storefront
 
-replicas: 50
+  # 6. This is the template, or blueprint, for the Pods themselves.
+  # The Deployment will create 50 Pods based on this template.
+  template:
+    metadata:
+      # 7. We give the Pods a label so the Deployment can find them.
+      labels:
+        app: storefront
 
-\# 5. This tells the Deployment how to find the Pods it's supposed to manage.
+    spec:
+      # 8. This section defines the containers to run inside the Pod.
+      containers:
+        - name: storefront-container
+          # 9. This is the most critical line: the specific Docker image to run.
+          image: dukaan/storefront:v2.1
 
-\# It looks for any Pods that have the label "app: storefront".
-
-selector:
-
-matchLabels:
-
-app: storefront
-
-\# 6. This is the template, or blueprint, for the Pods themselves.
-
-\# The Deployment will create 50 Pods based on this template.
-
-template:
-
-metadata:
-
-\# 7. We give the Pods a label so the Deployment can find them.
-
-labels:
-
-app: storefront
-
-spec:
-
-\# 8. This section defines the containers to run inside the Pod.
-
-containers:
-
-\- name: storefront-container
-
-\# 9. This is the most critical line: the specific Docker image to run.
-
-image: dukaan/storefront:v2.1
-
-\# 10. Tell Kubernetes which port our application is listening on inside the container.
-
-ports:
-
-\- containerPort: 8000
+          # 10. Tell Kubernetes which port our application is listening on inside the container.
+          ports:
+            - containerPort: 8000
+```
 
 ```
 
@@ -2616,7 +2542,7 @@ This YAML file is just a text file. It doesn't do anything on its own. We needed
 
 We ran a single command:
 
-kubectl apply -f storefront-deployment.yaml
+```kubectl apply -f storefront-deployment.yaml```
 
 And then, the magic began.
 
@@ -2796,7 +2722,7 @@ But loading a secure webpage isn't one conversation; it's a series of them that 
 
 Just to get the first byte of the HTML page, a user in India had to wait for at least 5 round trips.
 
-5 round trips \* 130ms/trip = 650ms
+```5 round trips * 130ms/trip = 650ms```
 
 This meant a Shopify store hosted in the US was guaranteed to have _at least_ a 650ms delay for an Indian user before anything even started to appear on the screen. And that's before accounting for network congestion and the time it takes to download all the images, CSS, and JavaScript files. The 3-4 second load times were inevitable. It was a tax imposed by physics.
 
@@ -3591,7 +3517,7 @@ Then, I moved my cursor to a new line. The tension was palpable. Arpit was leani
 
 I typed the command, slowly, deliberately:
 
-sudo shutdown -h now
+```sudo shutdown -h now```
 
 I hovered my finger over the Enter key for a beat, letting the gravity of the moment sink in. Then I pressed it.
 
