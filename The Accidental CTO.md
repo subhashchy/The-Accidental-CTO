@@ -3150,7 +3150,7 @@ We had done it. We had built our masterpiece on the best foundation we could fin
 
 But we soon discovered that our beautiful home was, in fact, a **golden cage**. It gave us comfort, power, and speed, but it came at a staggering price and kept us locked into a system where we didn't have ultimate control. This is the story of our daring escape.
 
-### Part 1: The \$80,000 Phone Call
+### Part 1: The $80,000 Phone Call
 
 The call came at the end of the month. It was Suumit. He wasn't angry or panicked. His voice just had a flat tone of pure, unadulterated shock.
 
