@@ -41,19 +41,20 @@
   
   /* Links */
   .markdown-content a {
-    color: #8b5cf6;
+    color: hsl(var(--primary));
     font-weight: bold;
     text-decoration: underline;
     word-break: break-word;
   }
   
   .markdown-content a:hover {
-    color: #7c3aed;
+    color: hsl(var(--primary));
     font-weight: bold;
+    opacity: 0.8;
   }
   /* Code */
   .markdown-content code {
-    background-color: #f3f4f6;
+    background-color: hsl(var(--code-background));
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
     font-size: 0.875rem;
@@ -62,7 +63,7 @@
   }
   
   .markdown-content pre {
-    background-color: #f3f4f6;
+    background-color: hsl(var(--code-background));
     padding: 1rem;
     border-radius: 0.5rem;
     overflow-x: auto;
@@ -78,11 +79,11 @@
   
   /* Blockquotes */
   .markdown-content blockquote {
-    border-left: 4px solid #d1d5db;
+    border-left: 4px solid hsl(var(--border));
     padding-left: 1rem;
     margin: 1rem 0;
     font-style: italic;
-    color: #4b5563;
+    color: hsl(var(--muted-foreground));
   }
   
   /* Images */
@@ -104,20 +105,20 @@
   
   .markdown-content th,
   .markdown-content td {
-    border: 1px solid #d1d5db;
+    border: 1px solid hsl(var(--border));
     padding: 0.5rem;
     text-align: left;
   }
   
   .markdown-content th {
-    background-color: #f3f4f6;
+    background-color: hsl(var(--code-background));
     font-weight: 600;
   }
   
   /* Horizontal rule */
   .markdown-content hr {
     border: none;
-    border-top: 1px solid #d1d5db;
+    border-top: 1px solid hsl(var(--border));
     margin: 2rem 0;
   }
   
