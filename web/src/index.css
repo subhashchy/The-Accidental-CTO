@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 263 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 263 70% 96%;
+    --sidebar-accent-foreground: 263 70% 50%;
+    --sidebar-border: 240 6% 92%;
+    --sidebar-ring: 263 70% 50%;
+
+    /* Reading experience */
+    --content-background: 0 0% 100%;
+    --content-text: 240 10% 15%;
+    --heading-text: 240 10% 10%;
+    --code-background: 240 5% 96%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(280, 70%, 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(240, 5%, 98%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(240 6% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(240 6% 10% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(240 6% 10% / 0.1);
+    --shadow-accent: 0 8px 24px -4px hsl(263 70% 50% / 0.2);
+  }
+
+  .dark {
+    --background: 240 10% 8%;
+    --foreground: 240 5% 96%;
+
+    --card: 240 10% 10%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 263 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 240 5% 96%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 263 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 240 5% 96%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 263 70% 55%;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 240 5% 85%;
+    --sidebar-primary: 263 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 14%;
+    --sidebar-accent-foreground: 263 70% 60%;
+    --sidebar-border: 240 4% 14%;
+    --sidebar-ring: 263 70% 55%;
+
+    /* Reading experience - dark mode */
+    --content-background: 240 10% 10%;
+    --content-text: 240 5% 88%;
+    --heading-text: 240 5% 96%;
+    --code-background: 240 4% 14%;
+    
+    /* Gradients - dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 55%), hsl(280, 70%, 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(240, 10%, 8%), hsl(240, 10%, 10%));
+    
+    /* Shadows - dark mode */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
+    --shadow-accent: 0 8px 24px -4px hsl(263 70% 55% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Beautiful reading typography */
+  .prose {
+    @apply text-content-text max-w-none;
+  }
+
+  .prose h1 {
+    @apply text-heading-text text-4xl md:text-5xl font-bold mb-8 mt-12 tracking-tight;
+  }
+
+  .prose h2 {
+    @apply text-heading-text text-3xl md:text-4xl font-bold mb-6 mt-10 tracking-tight;
+  }
+
+  .prose h3 {
+    @apply text-heading-text text-2xl md:text-3xl font-semibold mb-4 mt-8;
+  }
+
+  .prose p {
+    @apply text-content-text text-lg leading-relaxed mb-6;
+  }
+
+  .prose code {
+    @apply bg-code-background px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .prose pre {
+    @apply bg-code-background p-4 rounded-lg overflow-x-auto mb-6;
+  }
+
+  .prose a {
+    @apply text-primary hover:underline;
+  }
+
+  .prose ul, .prose ol {
+    @apply mb-6 ml-6;
+  }
+
+  .prose li {
+    @apply mb-2;
+  }
+
+  .prose strong {
+    @apply font-semibold text-heading-text;
+  }
+
+  /* Ensure images are responsive and don't overflow */
+  .prose img {
+    @apply max-w-full h-auto block mx-auto my-6 rounded-lg shadow-sm;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* Additional mobile image constraints */
+  .prose {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .prose img {
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Smooth transitions - applied selectively for better performance */
+  button, a, .hover\:bg-sidebar-accent:hover {
+    @apply transition-colors duration-200;
+  }
+}
