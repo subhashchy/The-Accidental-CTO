@@ -3,13 +3,12 @@
 
 ## **How I Scaled from Zero to a Million Stores on Dukaan, Without a CS Degree**
 
-### 🚀 Explore More
+### 🤝 Book Time with Subhash
 
-| [🧠 Technical Deep Dive](https://topmate.io/subhashchy) | [💰 Discuss Infra Cost Optimization](https://topmate.io/subhashchy) | [📞 Have a Call with Subhash](https://topmate.io/subhashchy) |
-|:-------------------------------------------------------:|:------------------------------------------------------------------:|:-------------------------------------------------------------:|
-| Learn the architectures, scaling challenges, and trade-offs made along the way. | Dive into strategies that saved thousands in infra bills. | Book a 1:1 session to discuss tech, scaling, or infra design. |
+| [🧠 Technical Deep Dive](https://topmate.io/subhashchy) | [💰 Infra Cost Optimization](https://topmate.io/subhashchy) | [📞 1:1 Call with Subhash](https://topmate.io/subhashchy) |
+|:-------------------------------------------------------:|:------------------------------------------------------------:|:-----------------------------------------------------------:|
+| For individuals who want to understand the architecture, scaling decisions, and trade-offs behind Dukaan’s journey. | For startups and businesses looking to optimize infrastructure costs and improve system efficiency. | For individuals seeking mentorship, career guidance, or advice on scaling tech teams and products. |
 
----
 
 I never set out to be a CTO. In fact, I didn’t even have a computer science degree. But somewhere between firefighting server crashes at 3 a.m. and obsessing over replication lag graphs, I found myself building systems that would eventually power over a **million online stores** at Dukaan.
 
