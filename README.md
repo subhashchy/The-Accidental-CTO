@@ -3,6 +3,14 @@
 
 ## **How I Scaled from Zero to a Million Stores on Dukaan, Without a CS Degree**
 
+### 🚀 Explore More
+
+| [🧠 Technical Deep Dive](https://topmate.io/subhashchy) | [💰 Discuss Infra Cost Optimization](https://topmate.io/subhashchy) | [📞 Have a Call with Subhash](https://topmate.io/subhashchy) |
+|:-------------------------------------------------------:|:------------------------------------------------------------------:|:-------------------------------------------------------------:|
+| Learn the architectures, scaling challenges, and trade-offs made along the way. | Dive into strategies that saved thousands in infra bills. | Book a 1:1 session to discuss tech, scaling, or infra design. |
+
+---
+
 I never set out to be a CTO. In fact, I didn’t even have a computer science degree. But somewhere between firefighting server crashes at 3 a.m. and obsessing over replication lag graphs, I found myself building systems that would eventually power over a **million online stores** at Dukaan.
 
 This book, *The Accidental CTO*, is my behind-the-scenes account of that journey. It’s not a dry academic manual filled with abstract diagrams. Instead, it’s a story-driven handbook — one that mixes late-night startup battles with the **hard system design lessons** that only come from being in the trenches.
