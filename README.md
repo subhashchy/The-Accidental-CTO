@@ -3,10 +3,9 @@
 
 ### 🤝 Book Time with Subhash
 
-| [🧠 Technical Deep Dive](https://topmate.io/subhashchy) | [💰 Infra Cost Optimization](https://topmate.io/subhashchy) | [📞 1:1 Call with Subhash](https://topmate.io/subhashchy) |
-|:-------------------------------------------------------:|:------------------------------------------------------------:|:-----------------------------------------------------------:|
+ [ Discuss how to Save 50% on your Infra Costs](https://topmate.io/subhashchy/532351) | [ Technical Doubts ? ](https://topmate.io/subhashchy) |  [Email Subhash](mailto:subhash@mydukaan.io)  
 
-📩 [Email Subhash](mailto:subhash@mydukaan.io)
+
 
 ## **How I Scaled from Zero to a Million Stores on Dukaan, Without a CS 
 I never set out to be a CTO. In fact, I didn’t even have a computer science degree. But somewhere between firefighting server crashes at 3 a.m. and obsessing over replication lag graphs, I found myself building systems that would eventually power over a **million online stores** at Dukaan.
