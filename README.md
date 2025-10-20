@@ -1,10 +1,6 @@
 
 # **The Accidental CTO**
 
-### 🤝 Book Time with Subhash
-
- [ Discuss how to Save 50% on your Infra Costs](https://topmate.io/subhashchy/) | [ Technical Doubts ? ](https://topmate.io/subhashchy) |  [Email Subhash](mailto:subhash@mydukaan.io)  ]
-
 
 
 ## **How I Scaled from Zero to a Million Stores on Dukaan, Without a CS 
