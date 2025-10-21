@@ -1,3 +1,4 @@
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/12177a57-9a61-4b4e-8430-3ceb6bf76100" />
 
 # **The Accidental CTO**
 
