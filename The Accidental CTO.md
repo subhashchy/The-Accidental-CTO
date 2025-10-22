@@ -6,42 +6,101 @@
 # Chapters
 
 - [Chapter 1: The 3 AM Phone Call](#chapter-1-the-3-am-phone-call)
+  - [Part 1: The Crash](#part-1-the-crash)
+  - [Part 2: Anatomy of a Server, or, The Single Chef Kitchen](#part-2-anatomy-of-a-server-or-the-single-chef-kitchen)
+  - [Part 3: Our Glorious, Dangerous Monolith](#part-3-our-glorious-dangerous-monolith)
 
 - [Chapter 2: The WhatsApp PDF Problem (The Origin)](#chapter-2-the-whatsapp-pdf-problem-the-origin)
+  - [Part 1: The Idea and the Skateboard](#part-1-the-idea-and-the-skateboard)
+  - [Part 2: Choosing Our Tools](#part-2-choosing-our-tools)
+  - [Part 3: Pouring the Foundation](#part-3-pouring-the-foundation)
 
 - [Chapter 3: The Great Divorce: Separating the App and the Database](#chapter-3-the-great-divorce-separating-the-app-and-the-database)
+  - [Part 1: The Morning After](#part-1-the-morning-after)
+  - [Part 2: The Migration Playbook](#part-2-the-migration-playbook)
+  - [Part 3: The New Bottleneck](#part-3-the-new-bottleneck)
 
 - [Chapter 4: The Traffic Cop: An Introduction to Load Balancing](#chapter-4-the-traffic-cop-an-introduction-to-load-balancing)
+  - [Part 1: The Kitchen on Fire](#part-1-the-kitchen-on-fire)
+  - [Part 2: The Traffic Cop](#part-2-the-traffic-cop)
+  - [Part 3: Our First Traffic Cop](#part-3-our-first-traffic-cop)
 
 - [Chapter 5: The Bouncer at the Database Club: Read Replicas](#chapter-5-the-bouncer-at-the-database-club-read-replicas)
+  - [Part 1: The Traffic Jam inside the Library](#part-1-the-traffic-jam-inside-the-library)
+  - [Part 2: The Bouncer and the VIP Entrance](#part-2-the-bouncer-and-the-vip-entrance)
+  - [Part 3: The Ghost of Old Data](#part-3-the-ghost-of-old-data)
 
 - [Chapter 6: "Don't Test on Prod, Bro!": The Staging Environment](#chapter-6-dont-test-on-prod-bro-the-staging-environment)
+  - [Part 1: The Bug That Broke Everything](#part-1-the-bug-that-broke-everything)
+  - [Part 2: Building the Mirror](#part-2-building-the-mirror)
+  - [Part 3: The Assembly Line](#part-3-the-assembly-line)
 
 - [Chapter 7: The Need for Speed: Caching with Redis](#chapter-7-the-need-for-speed-caching-with-redis)
+  - [Part 1: The gavranmisal.com Complaint](#part-1-the-gavranmisalcom-complaint)
+  - [Part 2: The Whiteboard](#part-2-the-whiteboard)
+  - [Part 3: The Art of Forgetting](#part-3-the-art-of-forgetting)
 
 - [Chapter 8: Breaking the Monolith: Our First Microservice](#chapter-8-breaking-the-monolith-our-first-microservice)
+  - [Part 1: The Civil War](#part-1-the-civil-war)
+  - [Part 2: Planning the First Incision](#part-2-planning-the-first-incision)
+  - [Part 3: The Strangler Fig Pattern](#part-3-the-strangler-fig-pattern)
 
-- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka) 
+- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka)
+  - [Part 1: The Flaky Listener](#part-1-the-flaky-listener)
+  - [Part 2: The Postal Service vs. The Newspaper](#part-2-the-postal-service-vs-the-newspaper)
+  - [Part 3: The Implementation and the New Reality](#part-3-the-implementation-and-the-new-reality)
 
-- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker)  
+- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker)
+  - [Part 1: The Two-Headed Dragon](#part-1-the-two-headed-dragon)
+  - [Part 2: The Magic Box](#part-2-the-magic-box)
+  - [Part 3: Packing Our First Box](#part-3-packing-our-first-box)
 
 - [Chapter 11: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search)
+  - [Part 1: The Frustration of a Broken Search](#part-1-the-frustration-of-a-broken-search)
+  - [Part 2: The Genius Clerk](#part-2-the-genius-clerk)
+  - [Part 3: The Implementation (Powered by Kafka)](#part-3-the-implementation-powered-by-kafka)
 
 - [Chapter 12: The Delivery Boy: CDNs for Static Assets](#chapter-12-the-delivery-boy-cdns-for-static-assets)
+  - [Part 1: The Long Haul](#part-1-the-long-haul)
+  - [Part 2: The Global Delivery Network](#part-2-the-global-delivery-network)
 
 - [Chapter 13: The Conductor: Orchestrating Everything with Kubernetes](#chapter-13-the-conductor-orchestrating-everything-with-kubernetes)
+  - [Part 1: The Orchestra Without a Conductor](#part-1-the-orchestra-without-a-conductor)
+  - [Part 2: Learning the Sheet Music](#part-2-learning-the-sheet-music)
+  - [Part 3: Writing the Sheet Music (YAML)](#part-3-writing-the-sheet-music-yaml)
 
 - [Chapter 14: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire)
+  - [Part 1: The Impossible Spike](#part-1-the-impossible-spike)
+  - [Part 2: The Evidence and the Smoking Gun](#part-2-the-evidence-and-the-smoking-gun)
 
 - [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network](#chapter-15-our-global-brain-designing-the-dukaan-edge-network)
+  - [Part 1: The Challenge and the "Oh Shit" Moment](#part-1-the-challenge-and-the-oh-shit-moment)
+  - [Part 2: The Enterprise Fortress](#part-2-the-enterprise-fortress)
+  - [Part 3: The Whiteboard and the Magic IP Address](#part-3-the-whiteboard-and-the-magic-ip-address)
+  - [Part 4: The Regional Brains](#part-4-the-regional-brains)
+  - [Part 5: The Global Nervous System](#part-5-the-global-nervous-system)
 
 - [Chapter 16: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader)
+  - [Part 1: The Invitation and the Impostor](#part-1-the-invitation-and-the-impostor)
+  - [Part 2: The Three-Hour Nerd Talk](#part-2-the-three-hour-nerd-talk)
+  - [Part 3: The Beacon and the Echo](#part-3-the-beacon-and-the-echo)
 
 - [Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal)
+  - [Part 1: The $80,000 Phone Call](#part-1-the-80000-phone-call)
+  - [Part 2: The Great Migration](#part-2-the-great-migration)
 
-- [Chapter 18: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) 
+- [Chapter 18: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover)
+  - [Part 1: The Pain of Nine Deployments](#part-1-the-pain-of-nine-deployments)
+  - [Part 2: The Assembly Line and the Delivery Truck (CI/CD)](#part-2-the-assembly-line-and-the-delivery-truck-cicd)
+  - [Part 3: The Autopilot (GitOps with Argo CD)](#part-3-the-autopilot-gitops-with-argo-cd)
 
 - [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto)
+  - [Part 1: The Challenge - "Asli Engineering"](#part-1-the-challenge-asli-engineering)
+  - [Part 2: The Live Failover - Shutting Down Production](#part-2-the-live-failover-shutting-down-production)
+  - [Part 3: The Echo](#part-3-the-echo)
+  - [Part 4: The Crossroads in the City of Dreams](#part-4-the-crossroads-in-the-city-of-dreams)
+  - [Part 5: The Catalyst and the Escape](#part-5-the-catalyst-and-the-escape)
+  - [Part 6: Suumit Shah](#part-6-suumit-shah)
 
 - [🖊️ Make Corrections ](https://github.com/hitesh-c/The-Accidental-CTO/blob/main/The%20Accidental%20CTO.md)
 
