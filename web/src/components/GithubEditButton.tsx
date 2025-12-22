@@ -1,4 +1,5 @@
 import { Pen } from "lucide-react";
+import { GITHUB_REPO_URL, BOOK_CONTENT_PATH } from "@/lib/constants";
 import {
     Tooltip,
     TooltipContent,
@@ -17,7 +18,7 @@ export const GithubEditButton = () => {
                     asChild
                 >
                     <a
-                        href="https://github.com/subhashchy/The-Accidental-CTO/blob/main/The%20Accidental%20CTO.md"
+                        href={`${GITHUB_REPO_URL}/blob/main${BOOK_CONTENT_PATH}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Edit on GitHub"

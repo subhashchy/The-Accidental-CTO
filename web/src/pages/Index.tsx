@@ -3,14 +3,12 @@ import { BookSidebar } from "@/components/BookSidebar";
 import { BookContent } from "@/components/BookContent";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { BOOK_CONTENT_PATH } from "@/lib/constants";
 import { useMarkdownContent } from "@/hooks/useMarkdownContent";
 import { Loader2 } from "lucide-react";
 
-// This is the URL of the book that will be displayed in the sidebar and content area
-const BOOK_URL = "/The%20Accidental%20CTO.md"
-
 const Index = () => {
-  const { content, chapters, loading, error } = useMarkdownContent(BOOK_URL);
+  const { content, chapters, loading, error } = useMarkdownContent(BOOK_CONTENT_PATH);
 
   // Update URL hash when scrolling through sections
   useEffect(() => {
