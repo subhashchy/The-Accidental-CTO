@@ -10,7 +10,7 @@ import { Loader2 } from "lucide-react";
 const Index = () => {
   const { content, chapters, loading, error } = useMarkdownContent(BOOK_CONTENT_PATH);
 
-  // Update URL hash when scrolling through sections
+  // Update URL hash and save persistence when scrolling through sections
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
@@ -31,13 +31,29 @@ const Index = () => {
           }
         }
 
-        if (activeId && window.location.hash !== `#${activeId}`) {
-          history.replaceState(null, '', `#${activeId}`);
-          window.dispatchEvent(new Event('hashchange'));
+        if (activeId) {
+          // Update URL hash for sharing/back button
+          if (window.location.hash !== `#${activeId}`) {
+            history.replaceState(null, '', `#${activeId}`);
+            window.dispatchEvent(new Event('hashchange'));
+          }
+          // Save persistence for "continue reading"
+          localStorage.setItem("lastReadChapter", activeId);
         }
         scrollTimeout = undefined!;
       }, 50); // 50ms throttle
     };
+
+    // Restore last read position on initial load if no hash exists
+    if (!window.location.hash) {
+      const savedChapter = localStorage.getItem("lastReadChapter");
+      if (savedChapter) {
+        // Small delay to ensure content has rendered before jumping
+        setTimeout(() => {
+          window.location.hash = savedChapter;
+        }, 300);
+      }
+    }
 
     // Small delay to ensure content renders
     const timer = setTimeout(() => {
