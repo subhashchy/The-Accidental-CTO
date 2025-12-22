@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { Edit, Menu, Pen, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { ScrollArea } from "./ui/scroll-area";
 import { ThemeToggle } from "./ThemeToggle";
+import { ReaderSettings } from "./ReaderSettings";
+import { GithubEditButton } from "./GithubEditButton";
+import { SidebarCloseButton } from "./SidebarCloseButton";
 import { cn } from "@/lib/utils";
 
 interface Chapter {
@@ -13,42 +16,71 @@ interface Chapter {
 
 interface BookSidebarProps {
   chapters: Chapter[];
-  activeChapter: string;
 }
 
-export const BookSidebar = ({ chapters, activeChapter }: BookSidebarProps) => {
+export const BookSidebar = ({ chapters }: BookSidebarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeChapter, setActiveChapter] = useState("");
 
-  const SidebarContent = () => (
+  // Track active chapter based on URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) setActiveChapter(hash);
+      setMobileOpen(false);
+    };
+    handleHashChange(); // Set initial
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Auto-scroll active item into view in sidebar
+  useEffect(() => {
+    if (!activeChapter) return;
+
+    // Small delay to ensure DOM is updated
+    requestAnimationFrame(() => {
+      const activeElements = document.querySelectorAll(`[data-chapter-id="${activeChapter}"]`);
+      activeElements.forEach((el) => {
+        // Check if element is in the visible desktop sidebar (not mobile)
+        const parent = el.closest('.lg\\:block');
+        if (parent || window.innerWidth < 1024) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+  }, [activeChapter]);
+
+  const sidebarContent = (
     <div className="flex flex-col h-screen bg-background border-r border-sidebar-border">
-      <div className="p-6 border-b border-sidebar-border">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div>
-              <h2 className="font-bold text-sidebar-foreground">The Accidental CTO</h2>
-              <p className="text-xs text-sidebar-foreground/60">By Subhash Choudhary</p>
-            </div>
+      <div className="p-6 border-b border-sidebar-border space-y-4">
+        {/* Branding Row */}
+        <div className="flex items-center gap-3">
+          <div className="relative shrink-0">
+            <img
+              src="https://github.com/subhashchy.png"
+              alt="Logo"
+              className="w-12 h-12 rounded-full border-2 border-sidebar-border shadow-sm object-cover bg-background"
+            />
           </div>
+          <div className="flex flex-col">
+            <h2 className="font-serif font-bold text-lg text-sidebar-foreground leading-tight tracking-tight">
+              The Accidental CTO
+            </h2>
+            <p className="text-[10px] uppercase tracking-widest text-sidebar-foreground/50 font-semibold mt-1">
+              By Subhash Choudhary
+            </p>
+          </div>
+        </div>
+
+        {/* Toolbar Row */}
+        <div className="flex items-center justify-between pt-2 border-t border-sidebar-border/50">
           <div className="flex items-center gap-1">
+            <ReaderSettings />
             <ThemeToggle />
-            <a
-              href="https://github.com/hitesh-c/The-Accidental-CTO/blob/main/The%20Accidental%20CTO.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-1 hover:bg-sidebar-accent rounded transition-colors"
-              title="Edit on GitHub"
-            >
-              <Pen className="w-4 h-4" />
-            </a>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileOpen(false)}
-              className="lg:hidden hover:bg-sidebar-accent"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <GithubEditButton />
           </div>
+          <SidebarCloseButton onClick={() => setMobileOpen(false)} />
         </div>
       </div>
 
@@ -58,6 +90,7 @@ export const BookSidebar = ({ chapters, activeChapter }: BookSidebarProps) => {
             <a
               key={chapter.id}
               href={`#${chapter.id}`}
+              data-chapter-id={chapter.id}
               className={cn(
                 "w-full text-left px-4 py-3 rounded-lg transition-all duration-200 block",
                 "hover:bg-sidebar-accent hover:translate-x-1",
@@ -67,7 +100,7 @@ export const BookSidebar = ({ chapters, activeChapter }: BookSidebarProps) => {
               )}
             >
               <div className="flex items-center gap-3">
-                <span 
+                <span
                   className={cn(
                     "text-sm leading-relaxed",
                     chapter.level === 1 && "font-semibold text-base",
@@ -113,7 +146,7 @@ export const BookSidebar = ({ chapters, activeChapter }: BookSidebarProps) => {
           "w-80"
         )}
       >
-        <SidebarContent />
+        {sidebarContent}
       </div>
 
       {/* Desktop Sidebar (always expanded, not collapsible) */}
@@ -122,7 +155,7 @@ export const BookSidebar = ({ chapters, activeChapter }: BookSidebarProps) => {
           "hidden lg:block sticky top-0 h-screen w-80 transition-all duration-300"
         )}
       >
-        <SidebarContent />
+        {sidebarContent}
       </div>
     </>
   );
