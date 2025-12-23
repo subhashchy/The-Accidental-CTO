@@ -21,9 +21,9 @@
 
 - [Chapter 8: Breaking the Monolith: Our First Microservice](#chapter-8-breaking-the-monolith-our-first-microservice)
 
-- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka) 
+- [Chapter 9: The Unbreakable Promise: Data Consistency with Kafka](#chapter-9-the-unbreakable-promise-data-consistency-with-kafka)
 
-- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker)  
+- [Chapter 10: The Shipping Container Revolution: An Introduction to Docker](#chapter-10-the-shipping-container-revolution-an-introduction-to-docker)
 
 - [Chapter 11: The Smart Clerk: Building World-Class Search](#chapter-11-the-smart-clerk-building-world-class-search)
 
@@ -33,15 +33,21 @@
 
 - [Chapter 14: The Shark Tank Effect: A Trial by Fire](#chapter-14-the-shark-tank-effect-a-trial-by-fire)
 
-- [Chapter 15: Our Global Brain: Designing the Dukaan Edge Network](#chapter-15-our-global-brain-designing-the-dukaan-edge-network)
+- [Chapter 15: The War on Shopify: Performance as a Feature](#chapter-15-the-war-on-shopify-performance-as-a-feature)
 
-- [Chapter 16: The Spotlight: From Accidental CTO to Tech Leader](#chapter-16-the-spotlight-from-accidental-cto-to-tech-leader)
+- [Chapter 16: The Whale: Onboarding an Enterprise Juggernaut](#chapter-16-the-whale-onboarding-an-enterprise-juggernaut)
 
-- [Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-17-escaping-the-golden-cage-from-aws-to-bare-metal)
+- [Chapter 17: Our Global Brain: Designing the Dukaan Edge Network](#chapter-17-our-global-brain-designing-the-dukaan-edge-network)
 
-- [Chapter 18: The Grand Finale: A Live Failover](#chapter-18-the-grand-finale-a-live-failover) 
+- [Chapter 18: The Spotlight: From Accidental CTO to Tech Leader](#chapter-18-the-spotlight-from-accidental-cto-to-tech-leader)
 
-- [Chapter 19: The Accidental CTO](#chapter-19-the-accidental-cto)
+- [Chapter 19: Escaping the Golden Cage: From AWS to Bare Metal](#chapter-19-escaping-the-golden-cage-from-aws-to-bare-metal)
+
+- [Chapter 20: The Autopilot: CI/CD for a Global Network](#chapter-20-the-autopilot-cicd-for-a-global-network)
+
+- [Chapter 21: The Grand Finale: A Live Failover](#chapter-21-the-grand-finale-a-live-failover)
+
+- [Chapter 22: The Accidental CTO](#chapter-22-the-accidental-cto)
 
 - [🖊️ Make Corrections ](https://github.com/hitesh-c/The-Accidental-CTO/blob/main/The%20Accidental%20CTO.md)
 
@@ -2830,7 +2836,7 @@ This architecture solved the "noisy neighbor" problem perfectly.
 - **Enhanced Security and Control:** For a large enterprise client, this data isolation was a massive feature. Their customer and order data wasn't just logically separated; it was physically separated onto different machines, providing a higher level of security and making it easier to meet compliance standards.
 - **A Scalable Model for the Future:** This architecture gave us a repeatable playbook for the future. When the next enterprise whale came along, we wouldn't have to panic about the capacity of our public database. We could simply provision a new, dedicated "Shard 3" for them. This decision was the foundation of our new "Dukaan Enterprise" offering, allowing us to serve two vastly different market segments without compromising the experience of either.
 
-## Chapter 15: Our Global Brain: Designing the Dukaan Edge Network
+## Chapter 17: Our Global Brain: Designing the Dukaan Edge Network
 
 We had declared war on latency. Our mission was to build an e-commerce platform that was not just fast, but _instantly_ fast, for every user on Earth. We knew the theory was sound: we had to move our servers closer to our users.
 
@@ -3010,7 +3016,7 @@ Let's walk through the exact sequence of events during a massive traffic spike:
 
 This multi-layered system-combining proactive global distribution with reactive local scaling-was our masterpiece. It allowed us to absorb the most extreme, unpredictable traffic spikes imaginable, not just surviving them, but doing so without our on-call engineers even receiving a single alert. It was the ultimate validation of our long and complex journey to the edge.
 
-## Chapter 15: Key Takeaways
+## Chapter 17: Key Takeaways
 
 - **To achieve global low latency, you must move both compute and data to the edge.** A regional application server is useless if it has to make a cross-continental call to a central database.
 - **Anycast IP is the magic that makes global routing seamless.** It allows you to use a single IP address to automatically direct users to the nearest physical data center.
@@ -3026,7 +3032,7 @@ Building a powerful engine is one thing. Learning how to tune it for maximum per
 
 We had created a global, resilient, and lightning-fast platform. But it was expensive and, at times, still a black box. The next chapters are about our quest for efficiency, visibility, and total automation. It's the story of how we took our powerful machine and turned it into a truly world-class, cost-effective, and self-driving operation.
 
-## Chapter 16: The Spotlight: From Accidental CTO to Tech Leader
+## Chapter 18: The Spotlight: From Accidental CTO to Tech Leader
 
 For years, my world was a black screen with green text. My battles were fought in silence, against crashing servers and failing databases. Our successes were measured by uptime graphs and falling latency numbers. We had built an incredible machine, but we had built it in the dark.
 
@@ -3137,14 +3143,14 @@ When I read that, a lightbulb went on. He was right. The community wasn't just e
 
 In many ways, that podcast was the first draft of this book. It proved that telling your story, honestly and authentically, is the most powerful thing you can do-for your company, for your community, and for yourself.
 
-## Chapter 16: Key Takeaways
+## Chapter 18: Key Takeaways
 
 - **Your company's engineering story is one of your most powerful recruiting tools.** Top talent is attracted to hard problems, not just high salaries.
 - **Share your work publicly.** Writing blog posts, speaking at meetups, or appearing on podcasts can establish your company as a technology brand, making it a magnet for the best engineers.
 - **Authenticity is more powerful than credentials.** The ability to explain complex concepts in simple, story-driven ways, backed by real-world experience, resonates far more than academic knowledge.
 - **Step outside your comfort zone.** The greatest opportunities for growth-both for you and your company-often lie on the other side of your own fear and impostor syndrome.
 
-## Chapter 17: Escaping the Golden Cage: From AWS to Bare Metal
+## Chapter 19: Escaping the Golden Cage: From AWS to Bare Metal
 
 We had done it. We had built our masterpiece on the best foundation we could find: Amazon Web Services. The cloud had given us the power to deploy servers around the world with a few clicks, to build a global database network, and to scale to incredible heights. We were living in a golden age of engineering, powered by the seemingly infinite resources of the cloud.
 
@@ -3254,7 +3260,7 @@ With the traffic fully migrated, we could safely log into the AWS console and te
 
 We then repeated this incredibly careful and deliberate process, region by region, over the next two months, until our entire global application was running on our own self-hosted, bare-metal infrastructure.
 
-## Chapter 16: The Autopilot: CI/CD for a Global Network
+## Chapter 20: The Autopilot: CI/CD for a Global Network
 
 We had reached a state of operational nirvana. Our global, self-hosted, bare-metal Kubernetes infrastructure was fast, resilient, and cheap. Our observability platform gave us unprecedented insight into every corner of our complex system. We had built a Formula 1 car, and we had the live telemetry to prove it.
 
@@ -3376,7 +3382,7 @@ With this system in place, our deployment process became a thing of beauty, simp
 
 This happens in parallel, automatically, across our entire global fleet. We had built a true autopilot. The hour-long, stressful, manual deployment ceremony was now a calm, five-second, auditable Git merge.
 
-## Chapter 17: Key Takeaways
+## Chapter 20: Key Takeaways
 
 - **CI/CD is the foundation of modern, agile software delivery.** **Continuous Integration (CI)** ensures your code is always in a healthy state, while **Continuous Deployment (CD)** ensures you can deliver it to users safely and quickly.
 - **A CI pipeline is your automated quality gate.** It should automatically test your code, lint it for style, and produce a single, immutable artifact (like a Docker image) as its output.
@@ -3384,7 +3390,7 @@ This happens in parallel, automatically, across our entire global fleet. We had 
 - **Tools like Argo CD act as the automated agent for GitOps.** They continuously reconcile the state of your live cluster with the desired state defined in your Git repository.
 - We had finally mastered the process of changing our complex machine. Deployments were no longer a source of fear, but a routine, boring, and safe non-event.
 
-## Chapter 18: The Grand Finale: A Live Failover
+## Chapter 21: The Grand Finale: A Live Failover
 
 The story of Dukaan was no longer a secret. After the Scaler podcast, our engineering culture and my personal journey were out in the open. But it was our next move-the public announcement of our migration to bare metal and the almost unbelievable 95% cost savings-that truly set the Indian tech community ablaze.
 
@@ -3541,7 +3547,7 @@ We weren't afraid of a server failing because we had architected for failure. We
 
 The podcast was the ultimate proof. We had not just mastered the machine; we had demonstrated that mastery to the world.
 
-## Chapter 18: Key Takeaways**
+## Chapter 21: Key Takeaways
 
 - **The ultimate test of a resilient system is its ability to handle live, unexpected failure with grace.** Don't just believe your system is resilient; test it.
 - **Radical transparency builds immense trust.** Showing your real architecture, your real numbers, and even trying to break your own systems in public is a powerful way to establish your credibility and attract the best talent.
@@ -3552,7 +3558,7 @@ The podcast was the ultimate proof. We had not just mastered the machine; we had
 
 <br/>
 
-## Chapter 19: The Accidental CTO
+## Chapter 22: The Accidental CTO
 
 You have just read the story of a system. Of servers, code, and global networks. It's a story of how an engine was built, piece by painful piece.
 
