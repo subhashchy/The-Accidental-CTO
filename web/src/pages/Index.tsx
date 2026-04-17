@@ -1,53 +1,72 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { BookSidebar } from "@/components/BookSidebar";
 import { BookContent } from "@/components/BookContent";
+import { ReadingProgress } from "@/components/ReadingProgress";
+import { ScrollToTop } from "@/components/ScrollToTop";
+import { BOOK_CONTENT_PATH } from "@/lib/constants";
 import { useMarkdownContent } from "@/hooks/useMarkdownContent";
-import { Loader2, ArrowUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-// This is the URL of the book that will be displayed in the sidebar and content area
-const BOOK_URL = "/test.md"
+import { Loader2 } from "lucide-react";
 
 const Index = () => {
-  const { content, chapters, loading, error } = useMarkdownContent(BOOK_URL);
-  const [activeChapter, setActiveChapter] = useState("");
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  const { content, chapters, loading, error } = useMarkdownContent(BOOK_CONTENT_PATH);
 
+  // Update URL hash and save persistence when scrolling through sections
   useEffect(() => {
-    // Observe headings for active chapter tracking
-    const headings = document.querySelectorAll(".prose h1, .prose h2, .prose h3");
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Array.from(headings).indexOf(entry.target);
-            if (index !== -1 && chapters[index]) {
-              setActiveChapter(chapters[index].id);
-            }
-          }
-        });
-      },
-      { rootMargin: "-20% 0px -70% 0px" }
-    );
+    let scrollTimeout: NodeJS.Timeout;
 
-    headings.forEach((heading) => observer.observe(heading));
-    return () => observer.disconnect();
-  }, [content, chapters]);
-
-  useEffect(() => {
-    // Show scroll to top button when user scrolls down
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
+      // Throttle updates to prevent jitters/glitches
+      if (scrollTimeout) return;
+
+      scrollTimeout = setTimeout(() => {
+        const headings = document.querySelectorAll(".markdown-content h1[id], .markdown-content h2[id], .markdown-content h3[id]");
+        let activeId = "";
+
+        // Find the last heading that is above the "reading line" (100px from top)
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top < 100) {
+            activeId = h.id;
+          } else {
+            break;
+          }
+        }
+
+        if (activeId) {
+          // Update URL hash for sharing/back button
+          if (window.location.hash !== `#${activeId}`) {
+            history.replaceState(null, '', `#${activeId}`);
+            window.dispatchEvent(new Event('hashchange'));
+          }
+          // Save persistence for "continue reading"
+          localStorage.setItem("lastReadChapter", activeId);
+        }
+        scrollTimeout = undefined!;
+      }, 50); // 50ms throttle
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Restore last read position on initial load if no hash exists
+    if (!window.location.hash) {
+      const savedChapter = localStorage.getItem("lastReadChapter");
+      if (savedChapter) {
+        // Small delay to ensure content has rendered before jumping
+        setTimeout(() => {
+          window.location.hash = savedChapter;
+        }, 300);
+      }
+    }
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    // Small delay to ensure content renders
+    const timer = setTimeout(() => {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+    };
+  }, [content]);
 
   if (loading) {
     return (
@@ -72,26 +91,16 @@ const Index = () => {
   }
 
   return (
-    <div className="flex max-h-screen overflow-y-scroll px-4  overflow-x-hidden max-w-[100vw]">
-      <BookSidebar
-        chapters={chapters}
-        activeChapter={activeChapter}
-      />
-      <main className="top-20">
-        <BookContent content={content} />
-      </main>
-      
-      {showScrollTop && (
-        <Button
-          onClick={scrollToTop}
-          size="icon"
-          className="fixed bottom-8 right-8 rounded-full shadow-elegant z-50"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="h-4 w-4" />
-        </Button>
-      )}
-    </div>
+    <>
+      <ReadingProgress />
+      <div className="flex min-h-screen px-4 max-w-[100vw]">
+        <BookSidebar chapters={chapters} />
+        <main className="flex-1 min-w-0 mt-8 lg:mt-0">
+          <BookContent content={content} />
+        </main>
+        <ScrollToTop />
+      </div>
+    </>
   );
 };
 

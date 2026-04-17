@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 15%;
 
-    --primary: 263 70% 50%;
+    --primary: 206 80% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 5% 96%;
@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 240 5% 96%;
     --muted-foreground: 240 4% 46%;
 
-    --accent: 263 70% 50%;
+    --accent: 206 80% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -34,34 +34,34 @@ All colors MUST be HSL.
 
     --border: 240 6% 90%;
     --input: 240 6% 90%;
-    --ring: 263 70% 50%;
+    --ring: 206 80% 40%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 99%;
     --sidebar-foreground: 240 5% 26%;
-    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary: 206 80% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 263 70% 96%;
-    --sidebar-accent-foreground: 263 70% 50%;
+    --sidebar-accent: 206 80% 96%;
+    --sidebar-accent-foreground: 206 80% 40%;
     --sidebar-border: 240 6% 92%;
-    --sidebar-ring: 263 70% 50%;
+    --sidebar-ring: 206 80% 40%;
 
     /* Reading experience */
     --content-background: 0 0% 100%;
     --content-text: 240 10% 15%;
     --heading-text: 240 10% 10%;
     --code-background: 240 5% 96%;
-    
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 50%), hsl(280, 70%, 55%));
+    --gradient-primary: linear-gradient(135deg, hsl(206, 80%, 40%), hsl(220, 80%, 45%));
     --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(240, 5%, 98%));
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(240 6% 10% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(240 6% 10% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(240 6% 10% / 0.1);
-    --shadow-accent: 0 8px 24px -4px hsl(263 70% 50% / 0.2);
+    --shadow-accent: 0 8px 24px -4px hsl(206 80% 40% / 0.2);
   }
 
   .dark {
@@ -74,7 +74,7 @@ All colors MUST be HSL.
     --popover: 240 10% 10%;
     --popover-foreground: 240 5% 96%;
 
-    --primary: 263 70% 55%;
+    --primary: 206 80% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4% 16%;
@@ -83,7 +83,7 @@ All colors MUST be HSL.
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 64%;
 
-    --accent: 263 70% 55%;
+    --accent: 206 80% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
@@ -91,33 +91,52 @@ All colors MUST be HSL.
 
     --border: 240 4% 16%;
     --input: 240 4% 16%;
-    --ring: 263 70% 55%;
+    --ring: 206 80% 45%;
 
     --sidebar-background: 240 10% 6%;
     --sidebar-foreground: 240 5% 85%;
-    --sidebar-primary: 263 70% 55%;
+    --sidebar-primary: 206 80% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4% 14%;
-    --sidebar-accent-foreground: 263 70% 60%;
+    --sidebar-accent-foreground: 206 80% 60%;
     --sidebar-border: 240 4% 14%;
-    --sidebar-ring: 263 70% 55%;
+    --sidebar-ring: 206 80% 45%;
 
     /* Reading experience - dark mode */
     --content-background: 240 10% 10%;
     --content-text: 240 5% 88%;
     --heading-text: 240 5% 96%;
     --code-background: 240 4% 14%;
-    
+
     /* Gradients - dark mode */
-    --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 55%), hsl(280, 70%, 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(206, 80%, 45%), hsl(220, 80%, 50%));
     --gradient-subtle: linear-gradient(180deg, hsl(240, 10%, 8%), hsl(240, 10%, 10%));
-    
+
     /* Shadows - dark mode */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
-    --shadow-accent: 0 8px 24px -4px hsl(263 70% 55% / 0.3);
+    --shadow-accent: 0 8px 24px -4px hsl(206 80% 45% / 0.3);
   }
+
+
+  /* Reader settings CSS variables (defaults, overridden by JS) */
+  :root {
+    --reader-font-size: 1.1rem;
+    --reader-font-family: Inter, system-ui, sans-serif;
+    --reader-line-height: 1.75;
+  }
+
+  /* Selection Highlights */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: inherit;
+  }
+
+  .dark ::selection {
+    background-color: hsl(var(--primary) / 0.3);
+  }
+
 }
 
 @layer base {
@@ -162,7 +181,8 @@ All colors MUST be HSL.
     @apply text-primary hover:underline;
   }
 
-  .prose ul, .prose ol {
+  .prose ul,
+  .prose ol {
     @apply mb-6 ml-6;
   }
 
@@ -198,7 +218,9 @@ All colors MUST be HSL.
   }
 
   /* Smooth transitions - applied selectively for better performance */
-  button, a, .hover\:bg-sidebar-accent:hover {
+  button,
+  a,
+  .hover\:bg-sidebar-accent:hover {
     @apply transition-colors duration-200;
   }
 }

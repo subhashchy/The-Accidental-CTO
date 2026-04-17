@@ -1,5 +1,6 @@
-
 # **The Accidental CTO**
+
+[![Read E-Book](https://img.shields.io/badge/Read-E--Book-blue?style=for-the-badge&logo=read-the-docs)](https://subhashchy.github.io/The-Accidental-CTO/)
 
 
 
