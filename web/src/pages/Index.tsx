@@ -6,7 +6,7 @@ import { Loader2, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // This is the URL of the book that will be displayed in the sidebar and content area
-const BOOK_URL = "/test.md"
+const BOOK_URL = `${import.meta.env.BASE_URL}/test.md`
 
 const Index = () => {
   const { content, chapters, loading, error } = useMarkdownContent(BOOK_URL);
